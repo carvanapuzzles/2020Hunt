@@ -1,0 +1,34 @@
+{% extends "hunt20/base.html" %}
+{% block content %}
+    <div id="main">
+        <div class="d-flex border-bottom justify-content-between align-items-center p-2" id="puzzletop">
+            <div class="" id="titlearea">
+                <h1 class="" id="title">
+                    {{puzzle.puzzle_name}}
+                </h1>
+            </div>
+            <span class="text-small text-nowrap" id="ans">
+                {% if status == "post" %}
+                    <a href="{%url 'hunt1-solution-archives' puzzle_id %}" class="btn btn-warning">View Solution</a>
+                {% else %}
+                    {% if solved %}
+                        <a href="{%url 'hunt1-submit' puzzle_id %}" class="btn btn-warning">View Submissions</a>
+                    {% else %}
+                        <a href="{%url 'hunt1-submit' puzzle_id %}" class="btn btn-warning">Submit Answer</a>
+                    {% endif %}
+                {% endif %}
+            </span>
+        </div>
+        <div class="mt-4" id="content">
+            {% if solved %}
+                <h2 class="text-center">Solved! Answer: 
+                    <span class="text-success text-uppercase">
+                        {{puzzle.puzzle_ans}}
+                    </span>
+                </h2>
+            {% endif %}
+            {%block puzzlecontent%}
+            {%endblock%}
+        </div>
+    </div>
+{% endblock content %}
