@@ -1,0 +1,1 @@
+web: gunicorn cph2020.wsgi
