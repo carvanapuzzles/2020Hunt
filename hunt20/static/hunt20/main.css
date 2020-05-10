@@ -294,3 +294,8 @@ label {
 hr {
     border-color: gold;
 }
+
+.math{
+    font-family: "Cambria";
+    font-style: italic;
+}
