@@ -2,7 +2,11 @@
 {% block content %}
 {% for puzzle in puzzles %}
 <div>
-    <a href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a>
+    <a href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a> 
+    {% if puzzle.puzzle_id in solved_ids %}
+        - <span class="text-success">{{puzzle.puzzle_ans}}</span>
+    {% else %}
+    {% endif %}
 </div>
 {% endfor %}
 {% endblock content %}

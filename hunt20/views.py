@@ -29,7 +29,8 @@ def guide(request):
 
 def puzzles(request):
     context = {
-        'puzzles': Puzzle.objects.all()
+        'puzzles': Puzzle.objects.all(),
+        'solved_ids': Submission.objects.filter(correct=True).filter(username=request.user.username).values_list('puzzle_id', flat=True),
     }
     return render(request, 'hunt20/puzzles.html', context)
 

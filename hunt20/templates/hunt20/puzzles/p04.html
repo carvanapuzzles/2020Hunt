@@ -1,624 +1,614 @@
-{% extends "hunt20/base.html" %}
-{% block content %}
-    <div id="main">
-        <div class="d-flex border-bottom justify-content-between align-items-center p-2" id="puzzletop">
-            <div class="" id="titlearea">
-                <h1 class="" id="title">
-                    Throwback Thursday
-                </h1>
+{% extends "hunt20/puzzles/puzzlebase.html" %}
+{% block puzzlecontent %}
+<div class="flavor">"You think is crazy?" A veteran competitor says with a wry grin. "This one time I was in a desert! Barely made it out alive!" (<a href="thissandisyoursand.com">thissandisyoursand.com</a> then login with admin/puzzlehunt19) </div>
+<hr>
+<div class="row">
+    <div class="col-6">Lucky bunch</div>
+    <div class="col-6">Recently late actor Kapoor</div>
+</div>
+<hr>
+<h4>
+    Old Technology (7-3 4)
+</h4>
+<p>
+    Ukman's company
+    <br>
+    Audio company founded in 1946
+    <br>
+    Usually the final NFL game of the week
+    <br>
+    Description or measurement of a computer network's performance
+    <br>
+    "Deep Note" company
+    <br>
+    Drone
+    <br>
+    Wabush airport
+    <br>
+    Judy Hopps' employer
+</p>
+<hr>
+<table class="numberlink">
+    <tr>
+        <td>O</td>
+        <td>E</td>
+        <td>E</td>
+        <td>L</td>
+        <td>R</td>
+        <td>E</td>
+        <td>C</td>
+        <td>T</td>
+        <td id="num">1</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>Y</td>
+        <td>O</td>
+        <td id="num">5</td>
+        <td id="num">3</td>
+        <td>I</td>
+        <td>W</td>
+        <td>Z</td>
+        <td>L</td>
+    </tr>
+    <tr>
+        <td>R</td>
+        <td>I</td>
+        <td id="num">2</td>
+        <td>B</td>
+        <td>T</td>
+        <td>D</td>
+        <td>T</td>
+        <td>I</td>
+        <td>O</td>
+    </tr>
+    <tr>
+        <td>R</td>
+        <td>P</td>
+        <td>F</td>
+        <td>T</td>
+        <td>Y</td>
+        <td id="num">4</td>
+        <td id="num">2</td>
+        <td>R</td>
+        <td id="num">3</td>
+    </tr>
+    <tr>
+        <td>P</td>
+        <td>A</td>
+        <td id="num">1</td>
+        <td id="num">5</td>
+        <td>E</td>
+        <td>U</td>
+        <td>U</td>
+        <td>E</td>
+        <td id="num">4</td>
+    </tr>
+</table>
+<hr>
+<p>Female growth hormone that came after the Boomers (8 +)</p>
+<p>Famous 76ers cardiologist (5 6 +)</p>
+<p>New Orleans GPA booster (3 3 4 +)</p>
+<hr>
+<h6>TSKPSFRMSDNGSSMTHNGS</h6>
+<hr>
+<div class="container">
+    <div class="row">
+    <div class="col-3 align-self-top">
+        <h3 class="border-bottom text-center">
+            Move
+        </h3>
+            <fieldset>
+                <div class="d-flex justify-content-center my-3">
+                    <input type="button" onclick="north()" value="North" class="btn btn-lg hover-secondary">
+                </div>
+                <div class="d-flex justify-content-between my-3">
+                    <input type="button" onclick="west()" value="West" class="btn btn-lg">
+                    <input type="button" onclick="east()" value="East" class="btn btn-lg"> 
+                </div>
+                <div class="d-flex justify-content-center my-3"> 
+                    <input type="button" onclick="south()" value="South" class="btn btn-lg">
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-6">
+            <div>
+                <fieldset class="">
+                    <textarea disabled id="output" name="output" rows="12" style="min-width: 100%" class="bg-light text-primary">
+                    </textarea>
+                </fieldset> 
             </div>
         </div>
-        <div class="mt-4" id="content">
-            <div class="flavor">"You think is crazy?" A veteran competitor says with a wry grin. "This one time I was in a desert! Barely made it out alive!" (<a href="thissandisyoursand.com">thissandisyoursand.com</a> then login with admin/puzzlehunt19) </div>
-            <hr>
-            <div class="row">
-                <div class="col-6">Lucky bunch</div>
-                <div class="col-6">Recently late actor Kapoor</div>
+        <div class="col-3">
+            <h3 class="border-bottom text-center">
+                Viewfield
+            </h3>                
+            <div id="cluespace">
             </div>
-            <hr>
-            <h4>
-                Old Technology (7-3 4)
-            </h4>
-            <p>
-                Ukman's company
-                <br>
-                Audio company founded in 1946
-                <br>
-                Usually the final NFL game of the week
-                <br>
-                Description or measurement of a computer network's performance
-                <br>
-                "Deep Note" company
-                <br>
-                Drone
-                <br>
-                Wabush airport
-                <br>
-                Judy Hopps' employer
-            </p>
-            <hr>
-            <table class="numberlink">
-                <tr>
-                    <td>O</td>
-                    <td>E</td>
-                    <td>E</td>
-                    <td>L</td>
-                    <td>R</td>
-                    <td>E</td>
-                    <td>C</td>
-                    <td>T</td>
-                    <td id="num">1</td>
-                </tr>
-                <tr>
-                    <td>B</td>
-                    <td>Y</td>
-                    <td>O</td>
-                    <td id="num">5</td>
-                    <td id="num">3</td>
-                    <td>I</td>
-                    <td>W</td>
-                    <td>Z</td>
-                    <td>L</td>
-                </tr>
-                <tr>
-                    <td>R</td>
-                    <td>I</td>
-                    <td id="num">2</td>
-                    <td>B</td>
-                    <td>T</td>
-                    <td>D</td>
-                    <td>T</td>
-                    <td>I</td>
-                    <td>O</td>
-                </tr>
-                <tr>
-                    <td>R</td>
-                    <td>P</td>
-                    <td>F</td>
-                    <td>T</td>
-                    <td>Y</td>
-                    <td id="num">4</td>
-                    <td id="num">2</td>
-                    <td>R</td>
-                    <td id="num">3</td>
-                </tr>
-                <tr>
-                    <td>P</td>
-                    <td>A</td>
-                    <td id="num">1</td>
-                    <td id="num">5</td>
-                    <td>E</td>
-                    <td>U</td>
-                    <td>U</td>
-                    <td>E</td>
-                    <td id="num">4</td>
-                </tr>
-            </table>
-            <hr>
-            <p>Female growth hormone that came after the Boomers (8 +)</p>
-            <p>Famous 76ers cardiologist (5 6 +)</p>
-            <p>New Orleans GPA booster (3 3 4 +)</p>
-            <hr>
-            <h6>TSKPSFRMSDNGSSMTHNGS</h6>
-            <hr>
-            <div class="container">
-                <div class="row">
-                <div class="col-3 align-self-top">
-                    <h3 class="border-bottom text-center">
-                        Move
-                    </h3>
-                        <fieldset>
-                            <div class="d-flex justify-content-center my-3">
-                                <input type="button" onclick="north()" value="North" class="btn btn-lg hover-secondary">
-                            </div>
-                            <div class="d-flex justify-content-between my-3">
-                                <input type="button" onclick="west()" value="West" class="btn btn-lg">
-                                <input type="button" onclick="east()" value="East" class="btn btn-lg"> 
-                            </div>
-                            <div class="d-flex justify-content-center my-3"> 
-                                <input type="button" onclick="south()" value="South" class="btn btn-lg">
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="col-6">
-                        <div>
-                            <fieldset class="">
-                                <textarea disabled id="output" name="output" rows="12" style="min-width: 100%" class="bg-light text-primary">
-                                </textarea>
-                            </fieldset> 
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <h3 class="border-bottom text-center">
-                            Viewfield
-                        </h3>                
-                        <div id="cluespace">
-                        </div>
-                    </div>
-                </div>
-        
-            </div>
-            <br>
-            <small class="border p-1">Note: this puzzle functions best with all ad block-type extensions disabled</small>
-            <hr>
-            <div class="row align-items-center">
-                <div class="col-lg-4">
-                    <table class="crossword">
-                        <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                3
-                            </td>
-                            <td>
-                                4
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                5
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                6
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                7
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-md-4">
-                    <h5>
-                        Across
-                    </h5>
-                    <div>
-                        1. Drenches
-                    </div>
-                    <div>
-                        5. Buy, fix, and resell
-                    </div>
-                    <div>
-                        6. Small amount
-                    </div>
-                    <div>
-                        7. Later on
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <h5>
-                        Down
-                    </h5>
-                    <div>
-                        1. Bulgarian capital
-                    </div>
-                    <div>
-                        2. In the air
-                    </div>
-                    <div>
-                        3. Only works if it's windy out
-                    </div>
-                    <div>
-                        4. Practice fighting
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <audio controls src="/static/hunt20/p04/tt.mp3"></audio>
-            <hr>
-            A mini-puzzle with the answer M
-            <hr>
-            <h3>4</h3>
-            <table class="dropquote">
-                <tr>
-                    <td>
-                        H
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-                        D
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-                        L
-                    </td>
-                    <td>
-                        L
-                    </td>
-                    <td>
-                        A
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-                        F
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-                        A
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        R
-                    </td>
-                    <td>
-                        E
-                    </td>
-                    <td>
-                        M
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-                        N
-                    </td>
-                    <td>
-                        L
-                    </td>
-                    <td>
-                        M
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        E
-                    </td>
-                    <td>
-                        A
-                    </td>
-                    <td>
-                        L
-                    </td>
-                    <td>
-                        H
-                    </td>
-                    <td>
-                        E
-                    </td>
-                    <td>
-                        D
-                    </td>
-                    <td>
-                        G
-                    </td>
-                    <td>
-                        I
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-                        L
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-                        F
-                    </td>                    
-                </tr>
-                <tr>
-                    <td>
-                        W
-                    </td>
-                    <td>
-                        O
-                    </td>
-                    <td>
-                        S
-                    </td>
-                    <td>
-                        A
-                    </td>
-                    <td>
-                        P
-                    </td>
-                    <td>
-                        U
-                    </td>
-                    <td>
-                        Y
-                    </td>
-                    <td>
-                        Y
-                    </td>
-                    <td>
-                        J
-                    </td>
-                    <td>
-                        R
-                    </td>
-                    <td>
-                        T
-                    </td>
-                    <td>
-                        L
-                    </td>
-                    <td>
-                        O
-                    </td>
-                    <td>
-                        U
-                    </td>
-                    <td>
-                        R
-                    </td>
-                    <td>
-                        Y
-                    </td>
-                    <td>
-                        R
-                    </td>
-                    <td>
-                        W
-                    </td>
-                    <td>
-                        I
-                    </td>
-                    <td>
-                        T
-                    </td>
-                </tr>
-            <table class="crossword">
-                <tr>
-                    <td>
-                        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="text-left">
-                        '
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td>
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                    <td class="fill">
-        
-                    </td>
-                </tr>
-
-            </table>
         </div>
     </div>
-{% endblock content %}
+
+</div>
+<br>
+<small class="border p-1">Note: this puzzle functions best with all ad block-type extensions disabled</small>
+<hr>
+<div class="row align-items-center">
+    <div class="col-lg-4">
+        <table class="crossword">
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    3
+                </td>
+                <td>
+                    4
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    6
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    7
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <h5>
+            Across
+        </h5>
+        <div>
+            1. Drenches
+        </div>
+        <div>
+            5. Buy, fix, and resell
+        </div>
+        <div>
+            6. Small amount
+        </div>
+        <div>
+            7. Later on
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h5>
+            Down
+        </h5>
+        <div>
+            1. Bulgarian capital
+        </div>
+        <div>
+            2. In the air
+        </div>
+        <div>
+            3. Only works if it's windy out
+        </div>
+        <div>
+            4. Practice fighting
+        </div>
+    </div>
+</div>
+<hr>
+<audio controls src="/static/hunt20/p04/tt.mp3"></audio>
+<hr>
+A mini-puzzle with the answer M
+<hr>
+<h3>4</h3>
+<table class="dropquote">
+    <tr>
+        <td>
+            H
+        </td>
+        <td>
+
+        </td>
+        <td>
+            D
+        </td>
+        <td>
+
+        </td>
+        <td>
+            L
+        </td>
+        <td>
+            L
+        </td>
+        <td>
+            A
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+            F
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+            A
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            R
+        </td>
+        <td>
+            E
+        </td>
+        <td>
+            M
+        </td>
+        <td>
+
+        </td>
+        <td>
+            N
+        </td>
+        <td>
+            L
+        </td>
+        <td>
+            M
+        </td>
+        <td>
+            B
+        </td>
+        <td>
+            E
+        </td>
+        <td>
+            A
+        </td>
+        <td>
+            L
+        </td>
+        <td>
+            H
+        </td>
+        <td>
+            E
+        </td>
+        <td>
+            D
+        </td>
+        <td>
+            G
+        </td>
+        <td>
+            I
+        </td>
+        <td>
+
+        </td>
+        <td>
+            L
+        </td>
+        <td>
+
+        </td>
+        <td>
+            F
+        </td>                    
+    </tr>
+    <tr>
+        <td>
+            W
+        </td>
+        <td>
+            O
+        </td>
+        <td>
+            S
+        </td>
+        <td>
+            A
+        </td>
+        <td>
+            P
+        </td>
+        <td>
+            U
+        </td>
+        <td>
+            Y
+        </td>
+        <td>
+            Y
+        </td>
+        <td>
+            J
+        </td>
+        <td>
+            R
+        </td>
+        <td>
+            T
+        </td>
+        <td>
+            L
+        </td>
+        <td>
+            O
+        </td>
+        <td>
+            U
+        </td>
+        <td>
+            R
+        </td>
+        <td>
+            Y
+        </td>
+        <td>
+            R
+        </td>
+        <td>
+            W
+        </td>
+        <td>
+            I
+        </td>
+        <td>
+            T
+        </td>
+    </tr>
+<table class="crossword">
+    <tr>
+        <td>
+            
+        </td>
+        <td>
+
+        </td>
+        <td class="text-left">
+            '
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td class="fill">
+
+        </td>
+        <td class="fill">
+
+        </td>
+    </tr>
+
+</table>
+{% endblock puzzlecontent %}
+

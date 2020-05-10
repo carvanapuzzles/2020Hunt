@@ -1,61 +1,124 @@
-{% extends "hunt20/base.html" %}
-{% block content %}
-    <div id="main">
-        <div class="d-flex border-bottom justify-content-between align-items-center p-2" id="puzzletop">
-            <div class="" id="titlearea">
-                <h1 class="" id="title">
-                    Interior Design
-                </h1>
-            </div>
-        </div>
-        <div class="mt-4" id="content">
-            <div class="flavor">
-                I'll keep it short--it looks like some teams have brought some inside help. Even after that, though, they seem to be lacking some heart.
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <div class="row align-items-center my-2">
-                        <img src='/static/hunt20/p05/S1.png' class='img-fluid'>
-                    </div>
-                    <div class="row align-items-center my-2">
-                        <img src='/static/hunt20/p05/S2.png' class='img-fluid'>
-                    </div>
-                    <div class="row align-items-center my-2">
-                        <img src='/static/hunt20/p05/S3.png' class='img-fluid'>
-                    </div>
-                    <div class="row align-items-center my-2">
-                        <img src='/static/hunt20/p05/S4.png' class='img-fluid'>
-                    </div>
-                    <div class="row align-items-center my-2">
-                        <img src='/static/hunt20/p05/S5.png' class='img-fluid'>
-                    </div>
-                    <div class="row align-items-center my-2">
-                        <img src='/static/hunt20/p05/S6.png' class='img-fluid'>
-                    </div>
-                    <div class="row align-items-center my-2">
-                        <img src='/static/hunt20/p05/S7.png' class='img-fluid'>
-                    </div>
-                    <div class="row align-items-center my-2">
-                        <img src='/static/hunt20/p05/S8.png' class='img-fluid'>
-                    </div>
-                    <div class="row align-items-center my-2">
-                        <img src='/static/hunt20/p05/S9.png' class='img-fluid'>
-                    </div>
-                </div>
-                <div>
-                    <div class="col-6">
-                        <h5>Fool</h5>
-                        <h5>King</h5>
-                        <h5>Eccentric</h5>
-                        <h5>Rise</h5>
-                        <h5>Tree</h5>
-                        <h5>Epic</h5>
-                        <h5>Profession</h5>
-                        <h5>Feeble</h5>
-                        <h5>House</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
+{% extends "hunt20/puzzles/puzzlebase.html" %}
+{% block puzzlecontent %}
+<div class="row align-items-center mb-3">
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i01.jpg" class="img-fluid">
     </div>
-{% endblock content %}
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i02.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i03.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i04.jpg" class="img-fluid">
+    </div>
+</div>
+<div class="row align-items-center mb-3">
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i05.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i06.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i07.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i08.jpg" class="img-fluid">
+    </div>
+</div>
+<div class="row align-items-center mb-3">
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i09.png" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i10.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i11.png" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i12.jpg" class="img-fluid">
+    </div>
+</div>
+<div class="row align-items-center mb-3">
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i13.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i14.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i15.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i16.jpg" class="img-fluid">
+    </div>
+</div>
+<div class="row align-items-center mb-3">
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i17.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i18.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i19.jpg" class="img-fluid">
+    </div>
+    <div class="col-3">
+        <img src="/static/hunt20/p03/i20.png" class="img-fluid">
+    </div>
+</div>
+<hr>
+<div class="mb-2">
+    <h4>
+        ?<span class="text-warning">?</span>????
+    </h4>
+</div>
+<div class="mb-2">
+    <h4>
+        ???<span class="text-warning">?</span>???
+    </h4>
+</div>
+<div class="mb-2">
+    <h4>
+        ????<span class="text-warning">?</span><span class="m-2"></span>???????
+    </h4>
+</div>
+<div class="mb-2">
+    <h4>
+        ???????<span class="m-2"></span>?<span class="text-warning">?</span>?
+    </h4>
+</div>
+<div class="mb-2">
+    <h4>
+        ????<span class="m-2"></span><span class="text-warning">?</span>???
+    </h4>
+</div>
+<div class="mb-2">
+    <h4>
+        ?????<span class="m-2"></span><span class="text-warning">?</span>????
+    </h4>
+</div>
+<div class="mb-2">
+    <h4>
+        ??????<span class="text-warning">?</span>?
+    </h4>
+</div>
+<div class="mb-2">
+    <h4>
+        ???<span class="m-2"></span>?<span class="text-warning">?</span>?????????
+    </h4>
+</div>
+<div class="mb-2">
+    <h4>
+        ????<span class="text-warning">?</span>??<span class="m-2"></span>???????
+    </h4>
+</div>
+<div class="mb-2">
+    <h4>
+        <span class="text-warning">?</span>?????-???
+    </h4>
+</div>
+{% endblock puzzlecontent %}
