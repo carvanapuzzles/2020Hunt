@@ -1,0 +1,25 @@
+{% extends "hunt20/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div>
+        <form action="" method="POST" id="regsubmit">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Sign Up!
+                </legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn" type="submit">
+                    Let's Go!
+                </button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-warning">
+                Already have an account? <a class="ml-2" href="{% url 'hunt20-login' %}">Sign In</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}

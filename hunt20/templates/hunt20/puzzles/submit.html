@@ -1,0 +1,50 @@
+{% extends "hunt20/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div id="main">
+        <div class="d-flex border-bottom justify-content-between align-items-center p-2" id="puzzletop">
+            <div class="" id="titlearea">
+                <h1 class="" id="title">                    
+                    {{ puzzle.puzzle_name }}
+                </h1>
+            </div>
+            <span class="text-small text-nowrap" id="ans">                    
+                    <a href="{%url 'hunt20-puzzle-archives' puzzle_id %}" class="btn btn-warning">Back To Puzzle</a>
+            </span>
+        </div>
+        <div class="mt-4" id="content">
+            {% if solved %}
+                <h2 class="text-center">Solved! Answer: 
+                    <span class="text-success text-uppercase">
+                        {{puzzle.puzzle_ans}}
+                    </span>
+                </h2>
+            {% else %}
+                <h6>You have {{guesses_left}} attempts remaining</h6>
+                {% if guesses_left == 0 %}
+                    <h6>You need to contact HQ at carvanapuzzles@gmail.com to get more guesses</h6>
+                {% else %}
+                    <form class="form-inline justify-content-center" action="" method="POST" id="answersubmit">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <fieldset>
+                                {{ form|crispy }}
+                            </fieldset>
+                            <button class="btn btn-info ml-2" type="submit" id="thebutton">
+                                SUBMIT
+                            </button>
+                        </div>
+                    </form>
+                {% endif %}
+            {% endif %}
+            <h4 class="mt-4 mb-4">Your Previous Answers...</h4>
+            {% for submission in submissions %}
+                {% if submission.correct %}
+                    <h6 class="text-uppercase font-italic">{{submission.team_ans}}</h6>
+                {% else %}
+                    <h6 class="text-uppercase">{{submission.team_ans}}</h6>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

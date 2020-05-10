@@ -1,10 +1,8 @@
 {% extends "hunt20/base.html" %}
 {% block content %}
- <h4><a href="{% url 'hunt20-puzzle-archives' 'p01' %}">Funny Bones</a></h4>
- <h4><a href="{% url 'hunt20-puzzle-archives' 'p02' %}">Royal Boxes</a></h4>
- <h4><a href="{% url 'hunt20-puzzle-archives' 'p03' %}">Haven't I Seen You Before?</a></h4>
- <h4><a href="{% url 'hunt20-puzzle-archives' 'p04' %}">Throwback Thursday</a></h4>
- <h4><a href="{% url 'hunt20-puzzle-archives' 'p05' %}">Interior Design</a></h4>
- <h4><a href="{% url 'hunt20-puzzle-archives' 'p06' %}">Opening Ceremony (Meta)</a></h4>
- 
+{% for puzzle in puzzles %}
+<div>
+    <a href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a>
+</div>
+{% endfor %}
 {% endblock content %}

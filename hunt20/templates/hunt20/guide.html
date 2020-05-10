@@ -1,0 +1,171 @@
+{% extends "hunt20/base.html" %}
+{% block content %}
+    <h1 class="text-center mb-3">Intro to Puzzle Solving</h1>
+    <div class="rules">
+        <h2>0 ~ Introduction</h2>
+        <p>
+            Welcome! This document is a little lengthy, but it is also your friend. 
+        </p>
+        <p>
+            We want to provide you with the most robust toolset possible for tackling these puzzles. Let's get to it.
+        </p>
+        <h2>1 ~ Puzzle Basics</h2>
+        <p>
+            Generally, puzzles have three pieces to them. A <span class="h5">Title</span>, some <em>flavortext</em>, and the actual content of the puzzle.
+        </p>
+        <p>
+            The <span class="h5">Title</span> and <em>flavortext</em> introduce the puzzle and can give you a clue towards the theme of the puzzle. Sometimes it's obvious how they relate to the rest of the puzzle, while other times the meaning only becomes apparent midway through.
+        </p>
+        <p>
+            As opposed to a traditional puzzle where just finishing the crossword or sudoku or logic grid or whatever is the end goal, solving a puzzlehunt puzzle requires extracting and submitting an <span class="text-success h5">ANSWER</span>, which will be a word, short phrase, or name.
+        </p>
+        <p>
+            It should be clear when you've found the answer--a word or two will emerge from a sea of what was cryptic or random-looking just a few seconds before. We'll touch on this more in section 4.
+        </p>
+        <p>
+            As stated in the <a class="text-primary" href="{%url 'hunt20-faq' %}">FAQ</a>, if it's not expressly disallowed, it's not cheating. Crossword helpers, web searches, asking your grandparents... all totally fine. Please note we are explicitly disallowing tampering with the website source code/backend, trying to hack other teams, and other unsportsmanlike behavior. See the <a class="text-primary" href="{%url 'hunt20-about' %}">Rules</a> for more details.
+        </p>
+        <h2>2 ~ Getting Started</h2>
+        <p>
+            As mentioned in the <a class="text-primary" href="{%url 'hunt20-faq' %}">FAQ</a>, puzzlehunt puzzles often have a lack of concrete instructions. While figuring out what to do and chasing that "aha!" moment can be one of the most fun parts of a puzzle, it can sometimes make it hard to get started.
+        </p>
+        <p>
+            When starting a puzzle, here are a few things to keep in mind/try:
+        </p>
+        <ul>
+            <li>Something obvious? Do it! A crossword? Start gridding. There might be a trick later but you have to start somewhere. A series of clue phrases? Take your best shot and see what happens from there. You have to have a few data points to pick up on patterns.</li>
+            <li>Google stuff. It's your friend. Puzzles very often contain references to things outside themselves. Unles you recently edited an encyclopedia, there’s a good chance Google is a better resource than only your existing knowledge. Google the title, flavortext, clues, whatever... The "hunt" in puzzlehunt is often that of the web variety. </li>
+            <li>Do <em>something</em>. Even if it seems like a silly idea, doing something on a puzzle is better than staring at it doing nothing. That's a good way to get discouraged. In pursuing your silly idea you might just find something useful for later. Or, maybe your silly idea isn't so silly afterall and it actually leads somewhere.</li>
+        </ul>
+        <h2>3 ~ Using Puzzle Etiquette To Your Advantage</h2>
+        <p>Puzzlehunting has a long list of unwritten rules that are beneficial to know. No, not for you, the solver (just 3 really for y'all: have fun, no hacking the site, have fun), they're rules for puzzle creators! Knowing what best practices (which we've tried to adhere to during construction) are will give you a big leg up in detecting patterns and closing the loop tight during a solve.</p>
+        <ul>
+            <li><span class="text-warning">Intentional red herrings and false trails are frowned upon.</span> You won't find any here; coincidences not caught during test solving may pop up but we've tried our best to catch and prune them.</li>
+            <li><span class="text-warning">Clues, items, and/or answers should never be presented in an arbitrary order.</span> Things should either be presented in alphabetical ordering (oftentimes helpful for solvers to eliminate options based on fit), another apparent, definite ordering, or be in an important order for a later step. If a puzzle seems to be in a completely arbitrary order--don't resort it! You're probably just being given the ordering up front. Initially well-ordered things oftentimes have to be resorted later by a different attribute.</li>
+            <li><span class="text-warning">Anything that looks like (10 6) or (5) is an enumeration, not an index.</span> So "Sluething canine (6-3)" would be SCOOBY-DOO.</li>
+            <li><span class="text-warning">Solvers shouldn't have to take an unprompted anagram of a lot of letters.</span> A good puzzle doesn't expect you to go from EWCATRSLEMIFTNACIFISXOTNEE to TEXAS STATE FLOWER SCIENTIFIC NAME out of the blue. If you have a lot of good letters that aren't giving anything, try finding an ordering or looking at them a different way. Smaller anagrams will pop up from time to time, but they should be more obvious to spot and well-motivated.</li>
+        </ul>
+        
+        <h2>4 ~ Working With Your Info</h2>
+        <p>
+            Organizing the information you have or find is the crucial middle step of any puzzle. A puzzle, by its very nature, is hiding something from you, obscuring the simple answer or final clue. It's waiting to pop out, but you have to be able to organize and manage the info you're discovering to see it.
+        </p>
+        <p>
+            Puzzle themes or structures can help organize your info and figure out what to note down. Maybe you're finding a list of what appear to be nicknames of presidents. Noting their actual name and order of office seems like great things to lookup and note. If you're delving unprompted into looking up home towns, favorite foods, and random un-thhematic/obscure stuff about them, you're probably making it more complicated than it needs to be.
+        </p>
+        <p>
+            On a lot of puzzles, an important step is finding an ordering (see section 3 for more on when you might need to re-order info). Alphabetically, numerically, or across a certain characteristic is a great place to start, but other more creative orderings could arise. Maybe you've just found 12 people who "happen" to each be born in a different month of the year. Maybe something else in the puzzle is hinting at how to order your info.
+        </p>
+        <h2>5 ~ Extracting an Answer</h2>
+        <p>
+            OK. You've organized all your info and you feel like the answer has got to be staring you in the face. How to get that final step from this sorted info? This step is called extraction. Extraction comes in a few different forms, but at the end of the day, you're looking to get meaningful letters out of... somewhere or something. Here are a few extremely common extraction methods.
+        </p>
+        <ul>
+            <li>
+                Taking first/last/middle/otherwise notable (ie. double, changed, missing...) letters of words, sentences, paragraphs, etc.
+            </li>
+            <li>
+                Indexing. Very common if you have words matched up with numbers. For example, if you got: <p class="text-center mt-2 text-warning"> Cyan-2 ... Olive-1 ... Lily-3 ... Yellow-5</p> It might be giving the answer <span class="text-success h5">YOLO</span> (2nd letter of C<span class="text-success">y</span>an, 1st of <span class="text-success">O</span>live, etc...)
+            </li>
+            <li>
+                Decoding. Tried and true classics like morse, braille, or 1=A, 2=B, etc. show up from time to time so be on the lookout.
+            </li>
+        </ul>
+        <p>
+            Sometimes extraction will net you a clue phrase as opposed to a final answer. Don't panic, just stop and think about the clue phrase (or Google for a couple minutes) and submit what it's hinting at. For instance, if you reach the last step of a puzzle and manage to pull out the letters LIGHTYEAR OR ALDRIN, you should not submit the answer "LIGHTYEAR OR ALDRIN". This is a cluephrase. Stop and ponder and then submit the answer <span class="text-success h5">BUZZ</span>, which satisfies the clue.
+        </p>
+        <p>
+            Most of the time, you'll use all of the info a puzzle gives you. If you're stuck on a seemingly impossible extraction, go back and check your work and make sure you're using all the info. If there's an suspiciously important part of the puzzle you've done nothing with yet, you likely need to use that to make your life easier.
+        </p>
+        <h2>6 ~ Team Organization and Dynamics</h2>
+        <p>
+            This is probably THE most important skill during a puzzlehunt. An organized team is an effective team; it's a lot harder to make small mistakes (taking the wrong letter, transposing answers, etc...) when you're organized. Organization also allows you to collaborate efficiently--when it's clear what everyone is working on and what's left to be done, the chances of duplicated or redundant work is lessened.
+        </p>
+        <p>
+            <span class="text-warning">The first thing your team should do when you launch into a puzzle is set up a Google sheet or other shared document</span> and give access to all of your teammates. Copy and paste or transcribe the title, flavor, and puzzle content into the sheet and you're off to the races. 
+        </p>
+        <p>
+            There's a balance of team collaboration and parallelization. You'll have muliple puzzles open at one time, so there is always the option of splitting your forces' focus and working on multiple things at the same time. This can be good and bad--breaking into multiple puzzles simultaneously lets the back of your mind think about "aha"s for longer and gives you things to bounce between when you get temporarily stuck. However, the fewer people working on a puzzle, the more chance a mistake goes uncaught for longer. Getting someone up to speed first and then having them check your work can take a bit longer thhan if they were there the whole time.
+        </p>
+        <h2>7 ~ Assorted Random Tips and Tricks</h2>
+        <ul>
+            <li>
+                Have a list of items, objects, names, or other things and don't know what to do? A quick Google search is almost always worth it to see if connections pop up. Google them together and seperately and you never know what might happen.
+            </li>
+            <li>
+                Speaking of Google searches, placing quotes around a search is a great way to enforce an exact match. "This is a specific sentence" can match much better for what you're looking for than without the quotes, where more individual terms can match.
+            </li>
+            <li>
+                Google can come in handy for more than words, too. Right-click on any image and you can reverse Google image search it (yep, that's a thing). Doesn't always work out but worth a shot! You can also take a screenshot and reverse image search by hand <a class="text-primary" href="https://images.google.com">HERE</a>.
+            </li>
+            <li>
+                As you can see, web searching is a powerful tool. Don't be too reliant on it though! A brain on the alert for patterns + a little common sense goes much further in the long run.
+            </li>
+            <li>
+                Read the <span class="h5">Title</span> and <em>flavortext</em> again.
+            </li>
+            <li>
+                <span class="text-warning">Use hints liberally!</span> They're there for a reason. Solving 10 puzzles during the hunt with all your hints remaining is worth just as much as solving 10 puzzles and using all your hints.
+            </li>
+            <li>
+                Double-check your work, especially on puzzles where you've gotten stuck or where small missteps might compound later.
+            </li>
+            <li>
+                This is just a reminder to use the principles from section 3. They really do help. Things are never presented in an arbitrary order.
+            </li>
+            <li>
+                Above everything else, <span class="text-warning">HAVE FUN!!</span> If you're not having fun, email us at carvanapuzzles@gmail.com and we'll see what we can do.
+            </li>
+        </ul>
+        <h2>Appendix A ~ Web Resources for Word Stuff</h2>
+        <p>
+            These links are tried, true, and approved resources for word-wise internet assistance.
+        </p>
+        <ul>
+            <li>
+                <a class="text-primary" href="https://www.quinapalus.com/cgi-bin/qat">Qat</a> (and <a class="text-primary" href="https://www.quinapalus.com/qat.html">tutorial</a>) - very useful for pattern matching and crossword completion.
+            </li>
+            <li>
+                <a class="text-primary" href="https://www.a2zwordfinder.com/">a2zwordfinder</a>  - simple interface and a nice catch-all for word stuff.
+            </li>
+            <li>
+                <a class="text-primary" href="https://nutrimatic.org">Nutrimatic</a>  - good for filling in missing letters in entire phrases.
+            </li>
+            <li>
+                <a class="text-primary" href="https://wordsmith.org/anagram/">Wordsmith Anagrams</a>  - nag a rams.
+            </li>
+        </ul>
+        <h2>Appendix B ~ Example Puzzles and Solutions</h2>
+        <p>
+            A collection of puzzles from other hunts we've done/seen. While it's impossible to summarize the world of puzzlehunts from a handful of examples, we think this is a good variety of styles and difficulties. We encourage you to check out other puzzles and solutions from some of these hunts.
+        </p>
+        <ul>
+            <li>
+                <a class="text-primary" href="http://web.mit.edu/puzzle/www/2015/puzzle/rid_fill/">Rid Fill</a> and <a class="text-primary" href="http://web.mit.edu/puzzle/www/2015/puzzle/rid_fill/solution/">solution</a> (2015 Mystery Hunt)
+            </li>
+            <li>
+                <a class="text-primary" href="http://web.mit.edu/puzzle/www/2015/puzzle/tickle_me_pink/">Tickle Me Pink</a> and <a class="text-primary" href="http://web.mit.edu/puzzle/www/2015/puzzle/tickle_me_pink/solution/">solution</a> (2015 Mystery Hunt)
+            </li>
+            <li>
+                <a class="text-primary" href="https://2018.galacticpuzzlehunt.com/puzzle/try-and-eat.html">Try and Eat</a> and <a class="text-primary" href="https://2018.galacticpuzzlehunt.com/solution/try-and-eat.html">solution</a> (2018 Galactic Puzzle Hunt)
+            </li>
+            <li>
+                <a class="text-primary" href="https://reddothunt.sg/2017/puzzle/addition">Addition</a> and <a class="text-primary" href="https://reddothunt.sg/2017/solution/addition">solution</a> (2017 Red Dot Hunt)
+            </li>
+            <li>
+                <a class="text-primary" href="https://www.mit.edu/~puzzle/2017/puzzle/epic_raft_battles_of_history.html">Epic Raft Battles Of History</a> and <a class="text-primary" href="https://www.mit.edu/~puzzle/2017/solution/epic_raft_battles_of_history.html">solution</a> (2017 Mystery Hunt)
+            </li>
+            <li>
+                <a class="text-primary" href="https://www.mit.edu/~puzzle/2017/puzzle/hand_them_over.html">Hand Them Over!</a> and <a class="text-primary" href="https://www.mit.edu/~puzzle/2017/solution/hand_them_over.html">solution</a> (2017 Mystery Hunt)
+            </li>
+            <li>
+                <a class="text-primary" href="https://2019.galacticpuzzlehunt.com/puzzle/cross-lines">Cross Lines</a> and <a class="text-primary" href="https://2019.galacticpuzzlehunt.com/solution/cross-lines">solution</a> (2019 Galactic Puzzle Hunt)
+            </li>
+            <li>
+                <a class="text-primary" href="https://2017.galacticpuzzlehunt.com/puzzle/2/1.html">What Do You Do?</a> and <a class="text-primary" href="https://2017.galacticpuzzlehunt.com/solution/2/1.html">solution</a> (2017 Galactic Puzzle Hunt)
+            </li>
+        </ul>
+
+          
+        </div>
+{% endblock content %}

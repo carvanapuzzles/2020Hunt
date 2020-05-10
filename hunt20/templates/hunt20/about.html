@@ -1,0 +1,84 @@
+{% extends "hunt20/base.html" %}
+{% block content %}
+    <h1 class="text-center mb-3">About/Rules</h1>
+    <div class="rules">
+        <h2>Format</h2>
+            <ul>
+                <li>
+                    The puzzlehunt begins on <span class="text-warning">Monday 8/26 at 12 pm AZ time</span> and will run until <span class="text-warning">Friday 8/30 at 12 pm AZ time</span>, at which point we will stop accepting answers and declare a winner! Solutions will also be posted at that time.
+                </li>
+                <li>
+                    Teams have a maximum size of 6 people. It is against the rules to create or be a member of multiple teams.
+                </li>
+                <li>
+                    A handful of puzzles will be available at the start of the hunt. To unlock new puzzles, solve available ones and progress. Puzzles will also automatically unlock as the hunt goes on.
+                </li>
+                <li>
+                    Teams that complete the hunt (solve every puzzle) will be ranked by time of finish. All other teams will be ranked by total number of puzzles solved, tiebroken by earliest last solve time (ie. who got to that number of solves first)
+                </li>
+            </ul>
+        <h2>Prizes</h2>
+            <ul>
+                <li>
+                    <span class="text-warning">Fabulous prizes are available for the top 4 teams!</span>
+                </li>
+                <li>
+                    1st) Perfect Puzzler Prize Pack: Escape Room session + Logic puzzle book and $25 gift cards for all team members
+                </li>
+                <li>
+                    2nd) Super Solver Sweet Swag: Logic puzzle book and $25 gift cards for all team members
+                </li>
+                <li>
+                    3rd) Clever Clue Cruncher Coup: Logic puzzle book and $15 gift cards for all team members
+                </li>
+                <li>
+                    4th) Determined Decoder Dividend: $10 gift cards for all team members
+                </li>
+            </ul>
+        <h2>Answers</h2>
+        <ul>
+            <li>
+                Each answer is a word or phrase consisting only of letters A-Z. 
+            </li>
+            <li>
+                Guesses will be converted to uppercase and stripped of non A-Z characters before being checked for correctness.
+            </li>
+            <li>
+                You have <span class="text-warning">25 total guesses for each puzzle</span>. If you legitimately run out of guesses and need more, feel free to contact us and we'll help you out. We won't necessarily grant your request if we see you're just randomly guessing thematic answers or brute forcing every 7 letter word starting with "E" because you think you have a single letter (<a class="text-primary" href="https://www.quinapalus.com/cgi-bin/qat?pat=e......&ent=Search&dict=0">there are a lot</a>, don't do that)
+            </li>
+        </ul>        
+        <h2>Hints</h2>
+        <ul>
+            <li>
+                Teams get <span class="text-warning">8 hints</span> at the start of the hunt to use whenever they would like 
+            </li>
+            <li>
+                Hints are personalized and designed to get you unstuck on a puzzle. They can be can be something like a push in the right direction (i.e. you give us your progress on the puzzle and we'll try to get you unstuck) or an answer to a question (e.g. "Which answers to these crossword clues are wrong?")
+            </li>
+            <li>
+                If you run out of hints early on and just aren't having fun, feel free to message us for more. This will disqualify you from prizes, but having fun and seeing cool puzzles is the real prize, isn't it?
+            </li>
+        </ul>            
+        <h2>Other Stuff</h2>
+        <ul>
+            <li>
+                You may (and are encouraged/required to for some puzzles) use ANY external sources (internet, books, other people) for help so long as any folks you ask for help aren't on another team or actively participating in the hunt
+            </li>
+            <li>
+                It won’t be necessary to look at the HTML source/Javascript/CSS on any webpages to solve any puzzles
+            </li>
+            <li>
+                We reserve the right to disqualify any team for unsportsmanlike conduct.
+            </li>
+            <li>
+                We reserve the right to change any of these rules. If there’s a big change, we’ll announce it to all teams.
+            </li>
+            <li>
+                <span class="text-warning">If you're looking for "what is a puzzle?" type stuff, check the</span> <a class="text-primary" href="{%url 'hunt20-guide' %}">FAQ</a> 
+            </li>
+            <li>
+                If you have any questions on the rules or wish to contact us for any reason, don't hesitate to email us at carvanapuzzles@gmail.com
+            </li>
+        </ul>          
+        </div>
+{% endblock content %}
