@@ -1,6 +1,7 @@
 {% extends "hunt20/puzzles/puzzlebase.html" %}
+{% load static %}
 {% block puzzlecontent %}
-<div class="flavor">"You think is crazy?" A veteran competitor says with a wry grin. "This one time I was in a desert! Barely made it out alive!" (<a href="thissandisyoursand.com">thissandisyoursand.com</a> then login with admin/puzzlehunt19) </div>
+<div class="flavor">"You think is crazy?" A veteran competitor says with a wry grin. "This one time I was in a desert! Barely made it out alive!" (<a href="thissandisyoursand.com">thissandisyoursand.com</a>) </div>
 <hr>
 <div class="row">
     <div class="col-6">Lucky bunch</div>
@@ -230,8 +231,8 @@
 </div>
 <hr>
 <audio controls src="/static/hunt20/p04/tt.mp3"></audio>
-<hr>
-A mini-puzzle with the answer M
+<br>
+<audio controls src="/static/hunt20/p04/tt_2.mp3"></audio>
 <hr>
 <h3>4</h3>
 <table class="dropquote">
@@ -611,4 +612,7 @@ A mini-puzzle with the answer M
 
 </table>
 {% endblock puzzlecontent %}
+{% block script %}
+<script src="{% static 'hunt20/textad.js' %}"></script>
+{% endblock script %}
 
