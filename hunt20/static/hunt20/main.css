@@ -103,6 +103,26 @@ label {
     background-color: black;
 }
 
+.soilbox{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em
+}
+
+.soilbox td{
+    border: 1px solid black;
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.soilbox .c{
+    background-color: transparent;
+    border: none;
+}
+
 .flavor {
     font-style: italic;
     margin-top: 0.5rem;
@@ -127,7 +147,7 @@ label {
     width: 35px;
     height: 35px;
     text-align: center;
-    vertical-align: center;
+    vertical-align: middle;
 }
 
 .freecross .cell{
@@ -149,7 +169,7 @@ label {
     width: 50px;
     height: 50px;
     text-align: center;
-    vertical-align: center;
+    vertical-align: middle;
 }
 
 .numberlink #num{
