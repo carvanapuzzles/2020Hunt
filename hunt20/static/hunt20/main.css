@@ -156,6 +156,12 @@ label {
     color: black;
 }
 
+.freecross .fill{
+    background-color: black;
+    border: 1px solid black;
+    color: black;
+}
+
 .numberlink{
     font-family: 'Times New Roman', Times, serif;
     border: 2px solid black;
