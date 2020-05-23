@@ -13,9 +13,10 @@ urlpatterns = [
     path('leaderboard/', views.leaderboard, name='hunt20-leaderboard'),
     
     path('puzzles/', views.puzzles, name='hunt20-puzzles'),
-    path('puzzles/<str:puzzle_id>/', views.puzzle_archives, name='hunt20-puzzle-archives'),
-    path('puzzles/<str:puzzle_id>/submit/', views.submit, name='hunt20-submit'),
-    path('puzzles/<str:puzzle_id>/solution/', views.solution_archives, name='hunt20-solution-archives'),
+    path('puzzles/p/<str:puzzle_id>/', views.puzzle_archives, name='hunt20-puzzle-archives'),
+    path('puzzles/p/<str:puzzle_id>/submit/', views.submit, name='hunt20-submit'),
+    path('puzzles/p/<str:puzzle_id>/solution/', views.solution_archives, name='hunt20-solution-archives'),
+    path('puzzles/r/r<str:round_num>/', views.round_archives, name='hunt20-round-archives'),
 
     path('register/', user_views.register, name='hunt20-register'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name="hunt20-login"),

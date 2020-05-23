@@ -1,0 +1,22 @@
+{% extends "hunt20/base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-3">
+        <p class="border p-2">
+            Welcome to round 3! Flavor flavor flavor! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo vitae saepe itaque, exercitationem sequi maiores! Architecto animi similique doloribus ratione ipsam corrupti, dolorum unde ducimus doloremque iure cum facere deleniti!
+        </p>
+    </div>
+    <div class="col-9">
+        <h1 class='text-center mb-3'>Round III</h1>
+        {% for puzzle in puzzles %}
+            <div>
+                <a href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a> 
+                {% if puzzle.puzzle_id in solved_ids %}
+                    - <span class="text-success">{{puzzle.puzzle_ans}}</span>
+                {% else %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

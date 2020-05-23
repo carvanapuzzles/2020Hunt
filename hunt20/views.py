@@ -40,6 +40,13 @@ def puzzles(request):
     }
     return render(request, 'hunt20/puzzles.html', context)
 
+def round_archives(request, round_num):
+    context = {
+        'puzzles': sorted(Puzzle.objects.filter(in_round=round_num),key=lambda b: b.puzzle_id),
+        'solved_ids': Submission.objects.filter(correct=True).filter(username=request.user.username).values_list('puzzle_id', flat=True),
+    }
+    return render(request, 'hunt20/puzzles/r' + round_num + '.html', context)
+
 def puzzle_archives(request, puzzle_id):
     submissions = Submission.objects.filter(puzzle_id=puzzle_id).filter(username=request.user.username)
     if submissions.filter(correct=True).exists():

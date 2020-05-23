@@ -1,12 +1,45 @@
 {% extends "hunt20/base.html" %}
 {% block content %}
-{% for puzzle in puzzles %}
 <div>
-    <a href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a> 
-    {% if puzzle.puzzle_id in solved_ids %}
-        - <span class="text-success">{{puzzle.puzzle_ans}}</span>
-    {% else %}
-    {% endif %}
+    <div class="row justify-content-center">
+        <a href="{%url 'hunt20-round-archives' 1 %}" class="card m-3 bg-dark border border-warning col-6">
+            <div class="card-body">
+                <h3 class="card-title d-flex justify-content-center">
+                ROUND I
+                </h4>
+    
+                <div class="card-text d-flex justify-content-center">
+                    "Things won are done, joy's soul lies in the puzzling"
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="row justify-content-center">
+        <a href="{%url 'hunt20-round-archives' 2 %}" class="card m-3 bg-dark border border-warning col-6">
+            <div class="card-body">
+                <h3 class="card-title d-flex justify-content-center">
+                ROUND II
+                </h4>
+    
+                <div class="card-text d-flex justify-content-center">
+                    "Nearly all men can stand adversity, but if you want to test a man's character, give him puzzles"
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="row justify-content-center">
+        <a href="{%url 'hunt20-round-archives' 3 %}" class="card m-3 bg-dark border border-warning col-6">
+            <div class="card-body">
+                <h3 class="card-title d-flex justify-content-center">
+                ROUND III
+                </h4>
+    
+                <div class="card-text d-flex justify-content-center">
+                    "The keenest sorrow is to recognize ourselves as the sole cause of all our puzzles"
+                </div>
+            </div>
+        </a>
+    </div>
+
 </div>
-{% endfor %}
 {% endblock content %}
