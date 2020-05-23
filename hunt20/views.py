@@ -125,12 +125,12 @@ def submit(request, puzzle_id):
                     elif norm_cluephrase==submission.team_ans and norm_cluephrase!="DNE":
                         submission.correct = False
                         submission = form.save()
-                        messages.success(request, 'That is the final cluephrase for this puzzle!')
+                        messages.warning(request, 'That is the final cluephrase for this puzzle!')
                     
                     elif norm_midpoint==submission.team_ans and norm_midpoint!="DNE":
                         submission.correct = False
                         submission = form.save()
-                        messages.success(request, 'On the right track! But you need to do a little more in the puzzle')
+                        messages.warning(request, 'On the right track! But you need to do a little more in the puzzle')
 
                     else:    
                         submission.correct = False
