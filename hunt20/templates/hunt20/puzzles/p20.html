@@ -1,3 +1,773 @@
 {% extends "hunt20/puzzles/puzzlebase.html" %}
 {% block puzzlecontent %}
+<div class="flavor">You come across a small town. One of the locals offers to show you around.</div>
+<div>
+    <p>
+        Welcome to our lovely town! We have 6 streets which run east-west and 6 avenues that run north-south. This pleaseant grid system has created 25 city blocks for us to develop on!
+    </p>
+    <p>
+        We have 7 points of interest for you to see while you're here! The ASYLUM, the BOWLING ALLEY, the COLLEGE, the DUCK POND, EASTWOOD PARK, the FIRE STATION, and the GYMNASIUM!
+    </p>
+    <p>
+        All of our points of interest are on the corner of a city block! They can be accessed from either the street or avenue they sit on. One could describe their location as being at the intersection of that street and avenue.
+    </p>
+</div>
+<div class="row justify-content-center mb-3">
+    <div>
+        <table class="town">
+            <tr>
+                <td class="bl">P</td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+            </tr>
+            <tr>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+            </tr>
+            <tr>
+                <td class="bl"></td>
+                <td class="bl">Q</td>
+                <td class="bl"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="my-auto mx-4">
+        <p>P is a valid spot for a point of interest! Q is not.</p>
+    </div>
+</div>
+<div>
+    <p>
+        We also have 25 beautiful fountains in our town, one on each city block! We're very particular about our fountains and care a lot about variety on our town, so they follow some rules...
+    </p>
+    <ol>
+        <li>Fountains are always on the side of a city block, never a corner or middle</li>
+        <li>Fountains can never face each other across a road</li>
+        <li>Fountains on adjacent city blocks (directly across a road from each other) cannot be on the same side of their blocks</li>
+        <li>Fountains are never directly next to points of interest</li>
+        <li>Every street and avenue has at least one fountain on it</li>
+    </ol>
+</div>
+<div class="row justify-content-center mb-3">
+    <div>
+        <table class="town">
+            <tr>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl t l">P</td>
+                <td class="bl t">F<sub>1</sub></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l">F<sub>2</sub></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+            </tr>
+            <td class="e"></td>
+            <td class="bl t l"></td>
+            <td class="bl t"></td>
+            <td class="bl t"></td>
+            <td class="l"></td>
+            <td class="bl t l"></td>
+            <td class="bl t"></td>
+            <td class="bl t"></td>
+            <td class="l"></td>
+        </tr>
+        <tr>
+            <td class="e"></td>
+            <td class="bl l"></td>
+            <td class="bl"></td>
+            <td class="bl"> F<sub>3</sub></td>
+            <td class="l"></td>
+            <td class="bl l" >F<sub>4</sub></td>
+            <td class="bl"></td>
+            <td class="bl"></td>
+            <td class="l"></td>
+        </tr>
+        <tr>
+            <td class="e"></td>
+            <td class="bl l"></td>
+            <td class="bl"></td>
+            <td class="bl"></td>
+            <td class="l"></td>
+            <td class="bl l"></td>
+            <td class="bl"></td>
+            <td class="bl"></td>
+            <td class="l"></td>
+        </tr>
+        <tr>
+            <td class=""></td>
+            <td class="t"></td>
+            <td class="t"></td>
+            <td class="t"></td>
+            <td class=""></td>
+            <td class="t"></td>
+            <td class="t"></td>
+            <td class="t"></td>
+            <td class=""></td>
+        </tr>
+
+        </table>
+    </div>
+    <div class="my-auto mx-4">
+        <p>
+            F<sub>3</sub> and F<sub>4</sub> are breaking rule 2
+        </p>
+        <p>
+            F<sub>2</sub> and F<sub>4</sub> are breaking rule 3
+        </p>
+        <p>
+            F<sub>1</sub> and P are breaking rule 4
+        </p>
+        <p>
+            Not all streets and avenues have a fountain on them
+        </p>
+    </div>
+</div>
+<div>
+    <p>
+        We've set up some walking tours that will show you around town! Each tour <u>starts in front of a fountain</u> and <u>ends at a point of interest</u>!
+    </p>
+    <p>
+        If you take all 7 tours, you will walk past each fountain exactly once! (Note that starting in front of a fountain DOES NOT count as passing it)
+    </p>
+    <p>
+        Finally, each point of interest has an address number. Funnily enough, we've set up the tours so that the number of fountains you walk past on the tour exactly matches the address number of the point of interest you arrive at!
+    </p>
+    <p>
+        Happy touring!
+    </p>
+</div>
+<hr>
+<div class="row justify-content-center mb-3">
+    <div>
+        <table class="town">
+            <tr>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+                <td class=""></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+                <td class="bl t l"></td>
+                <td class="bl t"></td>
+                <td class="bl t"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class="e"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+                <td class="bl l"></td>
+                <td class="bl"></td>
+                <td class="bl"></td>
+                <td class="l"></td>
+            </tr>
+            <tr>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class="t"></td>
+                <td class=""></td>
+            </tr>
+        </table>
+    </div>
+    <div class="my-auto mx-4">
+        <table class="freecross">
+            <tr>
+                <td></td>
+                <td>N</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>W</td>
+                <td></td>
+                <td>E</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>S</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="mb-4">
+    <h5>To get to the ASYLUM</h5>
+    <ul>
+        <li>Start on the second most southern street and head east</li>
+        <li>Turn left immediately after you pass a fountain</li>
+        <li>Turn right on the street with a reptilian name. You'll pass an even number of fountains on this avenue on your way there. (0 is an even number, by the way)</li>
+        <li>Turn right around a corner that has a point of interest</li>
+        <li>Go straight for two blocks then turn left onto the street that's named after an element</li>
+        <li>The ASYLUM will be on your right on the corner of the avenue that's named after our resident who accompanied a 25-year-old king and whose name sounds like a unit of measurement </li>
+    </ul>
+</div>
+<div>
+    <h5>To get to the BOWLING ALLEY</h5>
+    <ul>
+        <li>Start on the street with a truly cosmic name and head east</li>
+        <li>Cross at least one avenue and then turn right when you reach the edge of town</li>
+        <li>Next, turn right on the street named after flora in the general sense. (sorry you haven't seen any fountains so far, I promise you will soon!)</li>
+        <li>Go straight for a bit. Hey! A fountain! Next turn left on the avenue named after our resident who runs a museum</li>
+        <li>Turn right immediately</li>
+        <li>The BOWLING ALLEY will be on your right on the corner of the avenue named after our resident with a Greek name who was a tritagonist in a 1960s film</li>
+    </ul>
+</div>
+<div>
+    <h5>To get to the COLLEGE</h5>
+    <ul>
+        <li>Start on the avenue named after our resident who replaced his body with machinery and head north</li>
+        <li>Turn right at the second street you come across. Immediately take the next left (but check out the point of interest you just passed before you do!)</li>
+        <li>Take another immediate left</li>
+        <li>Alright, no more immediate turns! You'll have to cross at least one intersection between turns the rest of the way. Continue on this street until you pass a fountain, then take yet another left</li>
+        <li>Turn right onto the street that sounds like greeting a female friend and go past the avenue named after our resident who runs a museum</li>
+        <li>You didn't pass any fountains on this street! Bummer. Turn right immediately after passing a point of interest on your left</li>
+        <li>Turn right immediately after you pass a fountain on your left</li>
+        <li>The COLLEGE will be on your right at the end of a block</li>
+    </ul>
+</div>
+<div>
+    <h5>To get to the DUCK POND</h5>
+    <ul>
+        <li>Start smack dab at the midpoint of the avenue named after the full name of our resident who is the face of a League Two team and head away from the backlit street (though it might not be right next to you)</li>
+        <li>Take the very first left you can, pass an even number of fountains (0 is an even number), then turn right when you reach the edge of town</li>
+        <li>Take another immediate right</li>
+        <li>You'll pass the avenue named after our resident with a maternal name who helped out an orphan, then a point of interest, then a fountain. Turn left immediately after you pass the fountain</li>
+        <li>Go straight for some amount of time and the DUCK POND will be on your left at the end of a block</li>
+    </ul>
+</div>
+<div>
+    <h5>To get to EASTWOOD PARK</h5>
+    <ul>
+        <li>Start on the avenue named after our resident with a maternal name who helped out an orphan and head towards the nearest fountain on that same avenue</li>
+        <li>Right after you pass that fountain, turn away from the avenue that's named after our resident who accompanied a 25-year-old king and whose name sounds like a unit of measurement (though it might not be right next to you)</li>
+        <li>Turn left immediately after you pass another fountain</li>
+        <li>Go past the street that's named after an element, but turn left before you pass the point of interest on the avenue you're on</li>
+        <li>Immediately after you pass a fountain, turn towards the street with a reptilian name (though it might not be right next to you)</li>
+        <li>EASTWOOD PARK will be on your right within a block!</li>
+    </ul>
+</div>
+<div>
+    <h5>To get to the FIRE STATION</h5>
+    <ul>
+        <li>Start on the second-most eastern avenue and head north</li>
+        <li>You'll pass the street with a truly cosmic name before passing any fountains. Further up you will pass a fountain and turn left immediately afterwards.</li>
+        <li>Turn left again after some amount of time, after which you'll experience one of our most maginficent stretches of road, which features two points of interest directly across the street from each other!</li>
+        <li>Before you pass a fountain here, turn left</li>
+        <li>Turn right after some amount of time</li>
+        <li>Turn right onto the backlit street immediately after passing a fountain, then take another immediate right</li>
+        <li>Go through exactly one intersection and then the FIRE STATION will be on your left on the next block</li>
+    </ul>
+</div>
+<div>
+    <h5>To get to the GYMNASIUM</h5>
+    <ul>
+        <li>Start one avenue east of the avenue named after the full name of our resident who is the face of a League Two team and head south</li>
+        <li>Turn right</li>
+        <li>Turn right again</li>
+        <li>Turn right again</li>
+        <li>Turn left</li>
+        <li>Turn left again</li>
+        <li>The GYMNASIUM will be on your left!</li>
+    </ul>
+</div>
 {% endblock puzzlecontent %}

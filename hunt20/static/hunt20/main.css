@@ -53,6 +53,12 @@ a:hover {
     font-family: Cutive;
 }
 
+#titlearea{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
 #mainin{
     background-color: transparent;
 }
@@ -204,6 +210,34 @@ label {
 }
 
 .barcross #t{
+    border-top: 2px solid black;
+}
+
+.town{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: lightgray;
+    border: 2px solid black;
+    color: black;
+}
+
+.town td{
+    border: 1px dashed rgba(50, 50, 50, .3);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.town .bl{
+    background-color: rgb(126, 200, 80);
+}
+
+.town .l{
+    border-left: 2px solid black;
+}
+
+.town .t{
     border-top: 2px solid black;
 }
 
