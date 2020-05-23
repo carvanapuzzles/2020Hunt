@@ -9,6 +9,7 @@ class Puzzle(models.Model):
     puzzle_name = models.CharField(max_length=100)
     puzzle_ans = models.CharField(max_length=100)
     unlocks_at = models.IntegerField(default=0)
+    in_round = models.IntegerField(default=1)
     objects = models.Manager()
 
     def __str__(self):
