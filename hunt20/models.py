@@ -8,6 +8,8 @@ class Puzzle(models.Model):
     puzzle_id = models.CharField(max_length=100)
     puzzle_name = models.CharField(max_length=100)
     puzzle_ans = models.CharField(max_length=100)
+    puzzle_midpoint = models.CharField(max_length=100, default="DNE")
+    puzzle_cluephrase = models.CharField(max_length=100 , default="DNE")
     unlocks_at = models.IntegerField(default=0)
     in_round = models.IntegerField(default=1)
     objects = models.Manager()
