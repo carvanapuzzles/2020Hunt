@@ -9,6 +9,8 @@ urlpatterns = [
     path('faq/', views.faq, name='hunt20-faq'),
     path('about/', views.about, name='hunt20-about'),
     path('guide/', views.guide, name='hunt20-guide'),
+
+    path('leaderboard/', views.leaderboard, name='hunt20-leaderboard'),
     
     path('puzzles/', views.puzzles, name='hunt20-puzzles'),
     path('puzzles/<str:puzzle_id>/', views.puzzle_archives, name='hunt20-puzzle-archives'),

@@ -27,6 +27,12 @@ def faq(request):
 def guide(request):
     return render(request, 'hunt20/guide.html')
 
+def leaderboard(request):
+    context = {
+        'teams': sorted(sorted(Team.objects.filter(username__is_superuser=False).filter(is_testsolver=False),key=lambda b: b.last_solve_datetime ), key=lambda a: a.total_solves, reverse=True), 
+    }
+    return render(request, 'hunt20/leaderboard.html', context)
+
 def puzzles(request):
     context = {
         'puzzles': sorted(Puzzle.objects.all(),key=lambda b: b.puzzle_id),
