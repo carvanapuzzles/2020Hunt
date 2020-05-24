@@ -1,4 +1,5 @@
 {% extends "hunt20/base.html" %}
+{%block bodyclass%}snowflake{% endblock bodyclass%}
 {% block content %}
 <div class="row">
     <div class="col-3">
@@ -10,7 +11,7 @@
         <h1 class='text-center mb-3'>Round II</h1>
         {% for puzzle in puzzles %}
             <div>
-                <a href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a> 
+                <a class="puzzlelink" href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a> 
                 {% if puzzle.puzzle_id in solved_ids %}
                     - <span class="text-success">{{puzzle.puzzle_ans}}</span>
                 {% else %}

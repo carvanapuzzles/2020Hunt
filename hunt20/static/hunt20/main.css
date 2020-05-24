@@ -20,6 +20,95 @@
     border: 1px solid red;
 }
 
+#snowflake{
+    background-image: url("snowflakes.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: auto;
+    word-wrap: break-word
+}
+
+#snowflake .main {
+    background-color: black;
+    border: 1px solid silver;
+    font-family: 'Coustard';
+    color: white;
+}
+
+#snowflake .puzzlelink {
+    color: rgb(192, 192, 192);
+}
+
+#snowflake .puzzlelink:hover {
+    color: blue;  
+}
+
+#snowflake .main {
+    background-color: black;
+    border: 1px solid silver;
+}
+
+#northpole{
+    background-image: url("trees.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: auto;
+    word-wrap: break-word
+}
+
+#northpole .main {
+    background-color: whitesmoke;
+    border: 1px solid red;
+    color: black;
+    font-family: 'Georgia';
+}
+
+#northpole .puzzlelink {
+    color: forestgreen;
+}
+
+#northpole .puzzlelink:hover {
+    color: red;  
+}
+
+#puzzlympics .main {
+    background-color: rgba(50, 50, 50, .9);
+    border: 1px solid gold;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-family: 'Cutive';
+}
+
+#puzzlympics .puzzlelink {
+    color: rgb(184, 115, 51);
+}
+
+#puzzlmpyics .puzzlelink:hover {
+    color: gold 
+}
+
+#tt {
+    background-image: url("desert.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    /* background-color: slategray; */
+    /* background-color: red; */
+    color: whitesmoke;
+    font-family: Arvo;
+}
+
+#tt .main {
+    background-color: rgba(50, 50, 50, .7);
+    border: 1px solid silver;
+    margin-bottom: 1rem;
+}
+
+
 body {
     background-image: url("rings.jpg");
     background-repeat: repeat;
@@ -30,23 +119,42 @@ body {
     /* background-color: slategray; */
     /* background-color: red; */
     color: whitesmoke;
-    font-family: Cutive;
+    font-family: Spartan;
 }
 
-a {
+
+
+.navbar {
+    background-color: rgba(90, 90, 90, .9);
+    font-family: 'Spartan';
+}
+
+.navbar a {
+    color: gold; 
+}
+
+.navbar a:hover {
+    color: white; 
+}
+
+a  {
     color: rgb(184, 115, 51);
 }
 
 a:hover {
+    color: gold;
+}
+
+.puzzlelink {
+    color: rgb(184, 115, 51);
+}
+
+.puzzlelink:hover {
     color: gold;  
 }
 
 .helptext {
     color: red;
-}
-
-.navbar {
-    font-family: Arvo;
 }
 
 .hunttitle{
@@ -67,6 +175,7 @@ a:hover {
     background-color: rgba(50, 50, 50, .9);
     border: 1px solid gold;
     margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .content {

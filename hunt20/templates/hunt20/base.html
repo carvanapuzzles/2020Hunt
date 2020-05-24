@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'hunt20/main.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Arvo|Cutive|Delius+Unicase" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Cutive|Coustard|Spartan" rel="stylesheet">
 
     {% if title %}
         <title>{{ title }}</title>
@@ -19,23 +19,21 @@
 </head>
 <body id="{% block bodyclass %}{% endblock %}">
     <header class="site-header">
-        <div class="container">
-            <nav class="navbar justify-content-between border-bottom navbar-expand-lg navbar-dark m-4">
-                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-home' %}">Home</a>                  
-                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-about' %}">About/Rules</a>
-                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-puzzles' %}">Puzzles</a>
-                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-leaderboard' %}">Leaderboard</a>
-                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-faq' %}">FAQ</a>
-                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-guide' %}">Guide</a>
-                {% if user.is_authenticated %}
-                    {{ user.team.name }}
-                    <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-logout' %}">Log Out</a>
-                {% else %}
-                    <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-login' %}">Login</a>
-                    <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-register' %}">Register</a>
-                {% endif %}
-            </nav>
-        </div>
+        <nav class="navbar justify-content-between navbar-expand-lg">
+            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-home' %}">Home</a>                  
+            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-about' %}">About/Rules</a>
+            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-puzzles' %}">Puzzles</a>
+            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-leaderboard' %}">Leaderboard</a>
+            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-faq' %}">FAQ</a>
+            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-guide' %}">Guide</a>
+            {% if user.is_authenticated %}
+                {{ user.team.name }}
+                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-logout' %}">Log Out</a>
+            {% else %}
+                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-login' %}">Login</a>
+                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-register' %}">Register</a>
+            {% endif %}
+        </nav>
     </header>
     <div class="container main rounded">
         {% if messages %}
