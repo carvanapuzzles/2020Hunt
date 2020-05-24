@@ -85,8 +85,8 @@ def submit(request, puzzle_id):
         return redirect('hunt20-invalid')
     
     else:
-
-        submit_html = 'hunt20/puzzles/submit.html'
+        round = Puzzle.objects.get(puzzle_id=puzzle_id).in_round
+        submit_html = 'hunt20/puzzles/submit'+str(round)+'.html'
 
         def normalize(ans):
             regex = re.compile('[^a-zA-Z]')

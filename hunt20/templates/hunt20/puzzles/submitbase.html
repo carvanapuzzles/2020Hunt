@@ -1,16 +1,24 @@
 {% extends "hunt20/base.html" %}
+{%block bodyclass%}{% block bodyst %}{% endblock %}{% endblock bodyclass%}
 {% load crispy_forms_tags %}
 {% block content %}
     <div id="main">
-        <div class="d-flex border-bottom justify-content-between align-items-center p-2" id="puzzletop">
-            <div class="" id="titlearea">
-                <h1 class="" id="title">                    
-                    {{ puzzle.puzzle_name }}
-                </h1>
+        <div class="row border-bottom justify-content-between align-items-center p-2" id="puzzletop">
+            <div class="col-2">
+                <span class="text-small text-nowrap" id="ans">
+                    <a href="{%url 'hunt20-puzzle-archives' puzzle_id %}" class="btn btn-primary">Back to Puzzle</a>
+                </span>
             </div>
-            <span class="text-small text-nowrap" id="ans">                    
-                    <a href="{%url 'hunt20-puzzle-archives' puzzle_id %}" class="btn btn-warning">Back To Puzzle</a>
-            </span>
+            <div class="col-8">
+                <div class="" id="titlearea">
+                    <h1 class="" id="title">                    
+                        {{ puzzle.puzzle_name }}
+                    </h1>
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
         </div>
         <div class="mt-4" id="content">
             {% if solved %}
