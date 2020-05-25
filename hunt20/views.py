@@ -33,6 +33,16 @@ def leaderboard(request):
     }
     return render(request, 'hunt20/leaderboard.html', context)
 
+def bigboard(request):
+    if request.user.is_superuser is False:
+        return redirect('hunt20-invalid')
+    else:
+        context = {
+            'teams': sorted(sorted(Team.objects.filter(username__is_superuser=False).filter(is_testsolver=False), key=lambda b: b.last_solve_datetime),key=lambda a: a.total_solves, reverse=True),
+            'puzzles': Puzzle.objects.all(),
+        }
+        return render(request, 'hunt20/bigboard.html', context)
+
 def puzzles(request):
     context = {
         'puzzles': sorted(Puzzle.objects.all(),key=lambda b: b.puzzle_id),

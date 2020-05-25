@@ -1,0 +1,59 @@
+{% extends "hunt20/base.html" %}
+{% load tz %}
+{% load board_tags %}
+{% block content %}
+    <h1 class='text-center mb-3'>Big Board</h1>
+    <table style="width:100%" class="table">
+        <thead>
+            <tr class="text-uppercase">
+                <th><small>Rk</small></th>
+                <th><small>Name</small></th>
+                <th><small>Slv</small></th>
+                {% for puzzle in puzzles %}
+                    <th><small>{{puzzle.get_abbr}}</small></th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>  
+            {% for team in teams %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>
+                        {{ team.name }}
+                    </td>
+                    <td>
+                        {{ team.total_solves }}
+                    </td> 
+                    {% for puzzle in puzzles %}
+                        {% has_solved_puzzle team puzzle.puzzle_id as solved %}
+                        {% incorrect_answers_on_puzzle team puzzle.puzzle_id as incorrect_answers %}
+
+                        {% if solved %}
+                        <td style="background-color: rgba(20,230,20, .35)">
+                            <small>
+                                {% if incorrect_answers > 0 %}
+                                    -{{incorrect_answers}}
+                                {% else %}
+                                ✔✔
+                                {% endif %}
+                            </small>
+                        </td>
+                        {% else %}
+                        <td>
+                            <small>
+                                {% if incorrect_answers > 0 %}
+                                    -{{incorrect_answers}}
+                                {% endif %}
+                            </small>
+                        </td>
+                        {% endif %}
+
+                    {% endfor %}
+                </tr>  
+                
+            
+            {% endfor %}
+        </tbody>  
+    </table>
+
+{% endblock content %}
