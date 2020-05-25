@@ -30,7 +30,7 @@
 }
 
 #snowflake .main {
-    background-color: black;
+    background-color:rgb(0, 0, 0);
     border: 1px solid silver;
     font-family: 'Coustard';
     color: white;
@@ -44,10 +44,6 @@
     color: blue;  
 }
 
-#snowflake .main {
-    background-color: black;
-    border: 1px solid silver;
-}
 
 #northpole{
     background-image: url("trees.jpg");
