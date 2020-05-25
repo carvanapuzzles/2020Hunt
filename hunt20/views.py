@@ -39,7 +39,7 @@ def bigboard(request):
     else:
         context = {
             'teams': sorted(sorted(Team.objects.filter(username__is_superuser=False).filter(is_testsolver=False), key=lambda b: b.last_solve_datetime),key=lambda a: a.total_solves, reverse=True),
-            'puzzles': Puzzle.objects.all(),
+            'puzzles': sorted(Puzzle.objects.all(),key=lambda b: b.puzzle_id),
         }
         return render(request, 'hunt20/bigboard.html', context)
 
