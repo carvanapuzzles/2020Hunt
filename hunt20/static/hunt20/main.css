@@ -460,7 +460,8 @@ hr {
     border-color: gold;
 }
 
-.math{
+#math{
     font-family: "Cambria";
     font-style: italic;
+    font-size: large;
 }
