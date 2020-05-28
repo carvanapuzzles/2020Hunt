@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qhnvtw^a*e9%t2c7ri4#i2v=g(22l2qs=y&2e1bo_vs!2dag81'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['cph2020.herokuapp.com','127.0.0.1','localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['cph2020.herokuapp.com','127.0.0.1','localhost', '127.0.0.1','*']
 
 
 # Application definition
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'hunt20.apps.Hunt20Config',
     'users.apps.UsersConfig',
     'crispy_forms',
+    'django_slack',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,6 +130,8 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+SLACK_TOKEN = 'xoxb-1155831994068-1173491445856-rHljGt5aJajNwAucyEiBdlmS'
 
 LOGIN_REDIRECT_URL = 'hunt20-home'
 LOGIN_URL = "hunt20-login"

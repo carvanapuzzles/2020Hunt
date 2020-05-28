@@ -9,6 +9,7 @@ from .models import Submission
 from .models import Puzzle
 # from .models import HintRequest
 from .forms import SubmitForm
+from django_slack import slack_message
 
 
 def home(request):
@@ -125,28 +126,40 @@ def submit(request, puzzle_id):
 
                     if Submission.objects.filter(puzzle_id=puzzle_id).filter(username=request.user.username).filter(team_ans=submission.team_ans).exists():
                         messages.warning(request, 'You have already submitted this answer')
+                        result = 'Duplicate'
                         return redirect('hunt20-submit', puzzle_id=puzzle_id)
                     
                     elif norm_ans==submission.team_ans:
                         submission.correct = True
+                        result = 'Correct!'
                         submission = form.save()
                         messages.success(request, 'Correct!')
 
                     elif norm_cluephrase==submission.team_ans and norm_cluephrase!="DNE":
                         submission.correct = False
+                        result = 'Cluephrase'
                         submission = form.save()
                         messages.warning(request, 'That is the final cluephrase for this puzzle!')
                     
                     elif norm_midpoint==submission.team_ans and norm_midpoint!="DNE":
                         submission.correct = False
+                        result = 'Midpoint'
                         submission = form.save()
                         messages.warning(request, 'On the right track! But you need to do a little more in the puzzle')
 
                     else:    
                         submission.correct = False
+                        result = 'Incorrect'
                         submission = form.save()
                         messages.error(request, 'Incorrect')
-                    
+                        
+                    slack_message('hunt20/submission.slack',{
+                        'guess':submission.team_ans,
+                        'user':submission.username,
+                        'puzzle':submission.puzzle_id,
+                        'result':result
+                    })
+
                     return redirect('hunt20-submit', puzzle_id=puzzle_id)
         else:
             form = SubmitForm()

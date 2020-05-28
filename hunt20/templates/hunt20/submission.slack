@@ -1,0 +1,5 @@
+{% extends django_slack %}
+
+{% block text %}
+{{ user }} submitted {{ guess }} for {{ puzzle }} ({{ result }})
+{% endblock %}
