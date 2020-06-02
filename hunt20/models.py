@@ -59,6 +59,9 @@ class Team(models.Model):
     @property
     def total_solves(self):
         return Submission.objects.filter(username=self.username).filter(correct=True).count()
+
+    def round_solves(self, round_number):
+        return Submission.objects.filter(username=self.username).filter(correct=True).filter(puzzle__in_round=round_number).count()
     
     @property
     def last_solve_datetime(self):
@@ -68,16 +71,28 @@ class Team(models.Model):
         else:
             return self.created_datetime
 
-    # @property
-    # def hints_remaining(self):
-    #     hints_taken = HintRequest.objects.filter(username=self.username).filter(refunded=False).count()
-    #     return HINTS - hints_taken
+    @property
+    def in_round(self):
+        if Submission.objects.filter(username=self.username).filter(correct=True).filter(puzzle__puzzle_id='p06').exists():
+            if Submission.objects.filter(username=self.username).filter(correct=True).filter(puzzle__puzzle_id='p13').exists():
+                rd = 3
+            else:
+                rd = 2
+        else:
+            rd = 1
+        return rd
+            
+
+    @property
+    def hints_remaining(self):
+        hints_taken = HintRequest.objects.filter(username=self.username).filter(refunded=False).count()
+        return 10 - hints_taken
     
     def has_solved_puzzle(self, puzzle_id):
         return Submission.objects.filter(username=self.username).filter(correct=True).filter(puzzle_id=puzzle_id).exists()
 
-    # def hints_taken_on_puzzle(self, puzzle_name):
-    #     return HintRequest.objects.filter(username=self.username).filter(puzzle_name=puzzle_name).filter(refunded=False).count()
+    def hints_taken_on_puzzle(self, puzzle_name):
+        return HintRequest.objects.filter(username=self.username).filter(puzzle_name=puzzle_name).filter(refunded=False).count()
     
     def incorrect_answers_on_puzzle(self, puzzle_id):
         return Submission.objects.filter(username=self.username).filter(correct=False).filter(puzzle_id=puzzle_id).count()
@@ -93,7 +108,7 @@ def save_team(sender, instance, **kwargs):
 
 class Submission(models.Model):
     username = models.CharField(max_length=100)
-    puzzle_id = models.CharField(max_length=100)
+    puzzle = models.ForeignKey(Puzzle, on_delete=models.CASCADE, default=1)
     team_ans = models.CharField(max_length=100)
     eventdatetime = models.DateTimeField()
     correct = models.BooleanField()
@@ -104,4 +119,21 @@ class Submission(models.Model):
             outcome = 'correct'
         else:
             outcome = 'incorrect'
-        return '_'.join([self.username, self.puzzle_id, self.team_ans, outcome])
+        return '_'.join([self.username, self.puzzle.puzzle_id, self.team_ans, outcome])
+
+class HintRequest(models.Model):
+    username = models.CharField(max_length=100)
+    puzzle_name = models.CharField(max_length=100)
+    team_question = models.TextField()
+    hq_ans = models.TextField(default="(pending...)")
+    eventdatetime = models.DateTimeField()
+    answered = models.BooleanField()
+    refunded = models.BooleanField(default=False)
+    objects = models.Manager()
+
+    def __str__(self):
+        if self.answered:
+            status = 'closed'
+        else:
+            status = 'open'
+        return '_'.join([self.username, self.puzzle_name, status])        

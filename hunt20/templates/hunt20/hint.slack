@@ -1,0 +1,20 @@
+{% extends django_slack %}
+{% load django_slack %}
+
+{% block text %}
+{{ team|safe }} submitted a hint request for {{ puzzle|safe }}
+
+"{{ question|safe }}"
+{% endblock %}
+
+{% block channel %}
+2020-hints
+{% endblock %}
+
+{% block username %}
+carvanapuzzles
+{% endblock %}
+
+{% block icon_emoji %}
+{{ emoji }}
+{% endblock %}

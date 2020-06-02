@@ -1,5 +1,18 @@
 {% extends django_slack %}
+{% load django_slack %}
 
 {% block text %}
-{{ user }} submitted {{ guess }} for {{ puzzle }} ({{ result }})
+{{ team|escapeslack }} submitted {{ guess|escapeslack }} for {{ puzzle|escapeslack }} ({{ result|escapeslack }})
+{% endblock %}
+
+{% block channel %}
+2020-submissions
+{% endblock %}
+
+{% block username %}
+carvanapuzzles
+{% endblock %}
+
+{% block icon_emoji %}
+{{ emoji }}
 {% endblock %}
