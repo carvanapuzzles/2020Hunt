@@ -23,5 +23,5 @@ class HintForm(forms.ModelForm):
         super(HintForm, self).__init__(*args, **kwargs)
         current_round = user.team.in_round
         self.fields['puzzle_name'] = forms.ModelChoiceField(
-                                     queryset=Puzzle.objects.exclude(puzzle_id__in=Submission.objects.filter(correct=True).filter(username=user.username).values_list('puzzle__puzzle_id', flat=True)).filter(Q(in_round__lt=current_round) | (Q(in_round=current_round) & Q(unlocks_at__lte=user.team.round_solves(current_round))))
+                                     queryset=Puzzle.objects.exclude(puzzle_id__in=Submission.objects.filter(correct=True).filter(username=user.username).values_list('puzzle__puzzle_id', flat=True)).filter(Q(in_round__lt=current_round) | (Q(in_round=current_round) & Q(unlocks_at__lte=user.team.round_solves(current_round)))).order_by('puzzle_id')
                                      )
