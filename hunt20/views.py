@@ -52,6 +52,7 @@ def bigboard(request):
         }
         return render(request, 'hunt20/bigboard.html', context)
 
+@login_required
 def puzzles(request):
     context = {
         'puzzles': sorted(Puzzle.objects.all(),key=lambda b: b.puzzle_id),
@@ -59,6 +60,7 @@ def puzzles(request):
     }
     return render(request, 'hunt20/puzzles.html', context)
 
+@login_required
 def round_archives(request, round_num):
     if int(round_num) > request.user.team.in_round:
         return redirect('hunt20-invalid')
@@ -69,6 +71,7 @@ def round_archives(request, round_num):
         }
         return render(request, 'hunt20/puzzles/r' + round_num + '.html', context)
 
+@login_required
 def puzzle_archives(request, puzzle_id):
     puzzle = Puzzle.objects.filter(puzzle_id=puzzle_id).first()
     
