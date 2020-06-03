@@ -26,4 +26,6 @@ urlpatterns = [
     path('register/', user_views.register, name='hunt20-register'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name="hunt20-login"),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name="hunt20-logout"),
+
+    path('team/<int:user_pk>', user_views.team, name='hunt20-team'),
 ]

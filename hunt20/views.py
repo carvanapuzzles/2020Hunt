@@ -30,6 +30,12 @@ def faq(request):
 def guide(request):
     return render(request, 'hunt20/guide.html')
 
+def error_404(request, exception):
+    return render(request,'hunt20/invalid.html', status = 404)
+
+def error_500(request):
+    return render(request,'hunt20/error.html', status = 500)
+
 def leaderboard(request):
     context = {
         'teams': sorted(sorted(Team.objects.filter(username__is_superuser=False).filter(is_testsolver=False),key=lambda b: b.last_solve_datetime ), key=lambda a: a.total_solves, reverse=True), 
