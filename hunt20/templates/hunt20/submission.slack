@@ -2,7 +2,7 @@
 {% load django_slack %}
 
 {% block text %}
-{{ team|escapeslack }} submitted {{ guess|escapeslack }} for {{ puzzle|escapeslack }} ({{ result|escapeslack }})
+{{msg_emoji}} {{ team|escapeslack }} submitted {{ guess|escapeslack }} for {{ puzzle|escapeslack }} ({{ result|escapeslack }}) {{msg_emoji}}
 {% endblock %}
 
 {% block channel %}

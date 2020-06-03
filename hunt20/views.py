@@ -153,24 +153,28 @@ def submit(request, puzzle_id):
                         result = 'Correct!'
                         submission = form.save()
                         messages.success(request, 'Correct!')
+                        msg_emoji = ':white_check_mark:'
                         
                     elif norm_cluephrase==submission.team_ans and norm_cluephrase!="DNE":
                         submission.correct = False
                         result = 'Cluephrase'
                         submission = form.save()
                         messages.warning(request, 'That is the final cluephrase for this puzzle!')
+                        msg_emoji = ':thinking_face:'
                     
                     elif norm_midpoint==submission.team_ans and norm_midpoint!="DNE":
                         submission.correct = False
                         result = 'Midpoint'
                         submission = form.save()
                         messages.warning(request, 'On the right track! But you need to do a little more in the puzzle')
+                        msg_emoji = ':point_right:'
 
                     else:    
                         submission.correct = False
                         result = 'Incorrect'
                         submission = form.save()
                         messages.error(request, 'Incorrect')
+                        msg_emoji = ':x:'
 
                     slack_message('hunt20/submission.slack',{
                         'guess':submission.team_ans,
@@ -178,6 +182,7 @@ def submit(request, puzzle_id):
                         'puzzle':Puzzle.objects.get(puzzle_id=puzzle_id).puzzle_name,
                         'result':result,
                         'emoji':'squirrel',
+                        'msg_emoji': msg_emoji
                     })
 
                     return redirect('hunt20-submit', puzzle_id=puzzle_id)
