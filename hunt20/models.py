@@ -42,12 +42,12 @@ class Team(models.Model):
     created_datetime = models.DateTimeField(default=timezone.now)
     name = models.CharField(max_length=400)
     is_testsolver = models.BooleanField(default=False)
-    captain = models.CharField(max_length=100)
-    member1 = models.CharField(max_length=100)
-    member2 = models.CharField(max_length=100)
-    member3 = models.CharField(max_length=100)
-    member4 = models.CharField(max_length=100)
-    member5 = models.CharField(max_length=100)
+    captain = models.CharField(max_length=100, default='DNE')
+    member1 = models.CharField(max_length=100, default='DNE')
+    member2 = models.CharField(max_length=100, default='DNE')
+    member3 = models.CharField(max_length=100, default='DNE')
+    member4 = models.CharField(max_length=100, default='DNE')
+    member5 = models.CharField(max_length=100, default='DNE')
     objects = models.Manager()
 
     def __str__(self):
