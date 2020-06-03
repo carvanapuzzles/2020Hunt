@@ -1,5 +1,60 @@
 {% extends "hunt20/base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
-<h1>temp team page</h1>
+{% if displayteam.is_testsolver or displayteam.username.is_superuser %}
+<h3>Total Solves:</h3>
+<h5>Team Members</h5>
+<ol>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ol>
+{% else %}
+    <h1>{{ displayteam.name }}</h1>
+    <h3>Total Solves: {{displayteam.total_solves}}</h3>
+    <h5>Team Members</h5>
+    <ol>
+        <li>{{ displayteam.captain }}</li>
+        {% if displayteam.member1 != 'DNE' %}
+            <li>{{ displayteam.member1 }}</li>
+        {% endif %}
+        {% if displayteam.member2 != 'DNE' %}
+            <li>{{ displayteam.member2 }}</li>
+        {% endif %}
+        {% if displayteam.member3 != 'DNE' %}
+            <li>{{ displayteam.member3 }}</li>
+        {% endif %}
+        {% if displayteam.member4 != 'DNE' %}
+            <li>{{ displayteam.member4 }}</li>
+        {% endif %}
+        {% if displayteam.member5 != 'DNE' %}
+            <li>{{ displayteam.member5 }}</li>
+        {% endif %}
+    </ol>
+    {% if displayteam.username == user %}
+        {% if displayteam.member5 == 'DNE' %}
+            Add team member? (Max team size is 6)
+            <div>
+                <form class="form-inline" action="" method="POST" id="answersubmit">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <fieldset>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <button class="btn btn-info ml-2" type="submit" id="thebutton">
+                            Add Member!
+                        </button>
+                    </div>
+                </form>
+            </div>
+        {% else %}
+            <h5>Team is full!</h5>
+        {% endif %}
+    {% endif %}
+{% endif %}
 {% endblock content %}
