@@ -70,7 +70,7 @@
 }
 
 #puzzlympics .main {
-    background-color: rgba(50, 50, 50, .9);
+    background-color: rgba(45, 45, 45, .9);
     border: 1px solid gold;
     margin-bottom: 1rem;
     margin-top: 1rem;
@@ -168,7 +168,7 @@ a:hover {
 }
 
 .main {
-    background-color: rgba(50, 50, 50, .9);
+    background-color: rgba(45, 45, 45, .9);
     border: 1px solid gold;
     margin-bottom: 1rem;
     margin-top: 1rem;

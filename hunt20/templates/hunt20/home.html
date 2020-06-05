@@ -1,5 +1,39 @@
 {% extends "hunt20/base.html" %}
+{% load static%}
 {% block content %}
- <h1>Thanks for testsolving!</h1>
- <h2>Find puzzles <a href="{%url 'hunt20-puzzles' %}">HERE</a></h2>
+<h1 class="text-center mb-3">Carvana Puzzle Hunt 2020</h1>
+<img src="{% static "hunt20/p03/i20.png" %}" alt="" class="mx-auto d-block bg-transparent" style="width: 40%">
+<h1 class="text-center text-warning">The Puzzlympic Games</h1>
+<h6 class="text-center text-warning">Or</h6>
+<h3 class="text-center text-warning">If It Weren't For You Medaling Kids</h3>
+<p class="text-center text-warning small">A Carvana Puzzles Production</p>
+<div class="row">
+    <div class="col-4">
+        <h3 class="text-center">What's Up</h3>
+        <p>
+            With the postponement of the 2020 Tokyo Olympics, the world has turned its eyes to the IPC and the previously unheralded Puzzlympic Games! Does your team have what it takes to bring home gold? But be careful... there are some who would stop at nothing to disrupt the event for their own gain!
+        </p>
+    </div>
+    <div class="col-4">
+        <h3 class="text-center">Who + When</h3>
+        <p>Carvana employees and their family and friends can begin solving on Thursday June 25 at 12 pm AZ time. The Puzzlympic Games will run for exactly a week, concluding on Thursday July 2 at 12 pm AZ time.</p>
+    </div>
+    <div class="col-4">
+        <h3 class="text-center">Getting Started</h3>
+        <ul>
+            <li>
+                <a href="{%url 'hunt20-register' %}">Register</a> your team
+            </li>
+            <li>
+                Read the <a href="{%url 'hunt20-about' %}">Rules</a> and <a href="{%url 'hunt20-faq' %}">FAQ</a>
+            </li>
+            <li>
+                Read our <a href="{%url 'hunt20-guide' %}">Intro to Solving</a> guide
+            </li>
+            <li>
+                Check out <a href="//thissandisyoursand.com">Last Year's Hunt</a>
+            </li>
+        </ul>
+    </div>
+</div>
 {% endblock content %}
