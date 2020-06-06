@@ -21,11 +21,11 @@
 }
 
 #snowflake{
-    background-image: url("snowflakes.jpg");
-    background-repeat: repeat;
+    background-image: url("snowflakes_bg.png");
+    background-repeat: auto;
     background-attachment: fixed;
     background-position: center;
-    background-size: auto;
+    background-size: cover;
     word-wrap: break-word
 }
 
@@ -46,11 +46,11 @@
 
 
 #northpole{
-    background-image: url("trees.jpg");
-    background-repeat: repeat;
+    background-image: url("northpole_bg.png");
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: auto;
+    background-size: cover;
     word-wrap: break-word
 }
 
