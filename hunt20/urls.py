@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from users import views as user_views
 from django.contrib.auth import views as auth_views
+from django.conf.urls import url
 
 urlpatterns = [
     path('', views.home, name='hunt20-home'),
@@ -28,4 +29,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name="hunt20-logout"),
 
     path('team/<int:user_pk>', user_views.team, name='hunt20-team'),
+
+    url(r'^insanitycheck/$', views.insanity_check, name='hunt20-insanitycheck')
 ]

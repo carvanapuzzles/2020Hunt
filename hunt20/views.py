@@ -13,6 +13,7 @@ from .forms import SubmitForm
 from .forms import HintForm
 from django_slack import slack_message
 from .globals import get_background
+from django.http import JsonResponse
 
 def home(request):
     bg = get_background(request)
@@ -265,3 +266,25 @@ def hints(request):
         'background': bg,
     }      
     return render(request, 'hunt20/hints.html', context=context)
+
+def insanity_check(request):
+    s = request.GET.get("inputs")
+    if s[-10:]=='1111111111' and s[-11] != '1':
+        output = 'We did it!'
+    elif s[-1:]=='1':
+        output = 'I'
+    elif s[-1:]=='2':
+        output = 'N'
+    elif s[-1:]=='3':
+        output = 'S'
+    elif s[-1:]=='4':
+        output = 'A'
+    elif s[-1:]=='5':
+        output = 'N'
+    elif s[-1:]=='6':
+        output = 'E'
+
+    data = {
+        'output': output
+        }
+    return JsonResponse(data,status = 200)

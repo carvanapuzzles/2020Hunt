@@ -1,4 +1,30 @@
 {% extends "hunt20/puzzles/puzzlebase.html" %}
+{% load static %}
 {%block bodyst%}northpole{%endblock bodyst%}
 {% block puzzlecontent %}
+<div class="flavor">
+    Crazy town
+</div>
+<fieldset>
+    <div class="row justify-content-center">
+        <input type="button" onclick="one()" value="1" class="btn btn-lg btn-outline-secondary m-1">
+        <input type="button" onclick="two()" value="2" class="btn btn-lg btn-outline-secondary m-1">
+    </div>
+    <div class="row justify-content-center">
+        <input type="button" onclick="three()" value="3" class="btn btn-lg btn-outline-secondary m-1">
+        <input type="button" onclick="four()" value="4" class="btn btn-lg btn-outline-secondary m-1">
+    </div>
+    <div class="row justify-content-center">
+        <input type="button" onclick="five()" value="5" class="btn btn-lg btn-outline-secondary m-1">
+        <input type="button" onclick="six()" value="6" class="btn btn-lg btn-outline-secondary m-1">
+    </div>
+</fieldset>
+<div>
+    <fieldset class="">
+        <h1 id="output" name="output" class="text-center"></h1>
+    </fieldset> 
+</div>
 {% endblock puzzlecontent %}
+{% block script %}
+<script src="{% static 'hunt20/insanity.js' %}"></script>
+{% endblock script %}
