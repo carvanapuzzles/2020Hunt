@@ -30,18 +30,27 @@
 }
 
 #snowflake .main {
-    background-color:rgb(0, 0, 0);
+    background-color:rgba(10, 10, 10, .87);
     border: 1px solid silver;
     font-family: 'Coustard';
     color: white;
 }
 
-#snowflake .puzzlelink {
+#snowflake .puzzlelinks a {
     color: rgb(192, 192, 192);
 }
 
-#snowflake .puzzlelink:hover {
-    color: blue;  
+#snowflake .puzzlelinks a:hover {
+    color: gold;
+}
+
+#snowflake .hintcard {
+    border-color: white;
+    background-color: black;
+}
+
+#northpole .accent {
+    color: forestgreen;
 }
 
 
@@ -55,18 +64,23 @@
 }
 
 #northpole .main {
-    background-color: whitesmoke;
+    background-color: rgba(240, 240, 240, .97);
     border: 1px solid red;
     color: black;
     font-family: 'Georgia';
 }
 
-#northpole .puzzlelink {
+#northpole .puzzlelinks a {
     color: forestgreen;
 }
 
-#northpole .puzzlelink:hover {
+#northpole .puzzlelinks a:hover {
     color: red;  
+}
+
+#northpole .hintcard {
+    border-color: black;
+    background-color: white;
 }
 
 #puzzlympics .main {
@@ -74,16 +88,14 @@
     border: 1px solid gold;
     margin-bottom: 1rem;
     margin-top: 1rem;
-    font-family: 'Cutive';
+    font-family: 'Spartan';
 }
 
-#puzzlympics .puzzlelink {
-    color: rgb(184, 115, 51);
+#puzzlympics .hintcard {
+    border-color: white;
+    background: rgb(100, 100, 100);
 }
 
-#puzzlmpyics .puzzlelink:hover {
-    color: gold 
-}
 
 #tt {
     background-image: url("desert.jpg");
@@ -134,15 +146,15 @@ body {
 }
 
 a  {
-    color: rgb(184, 115, 51);
+    color: rgb(194, 125, 61);
 }
 
 a:hover {
-    color: gold;
+    color: whitesmoke;
 }
 
 .puzzlelink {
-    color: rgb(184, 115, 51);
+    color: rgb(194, 125, 61);
 }
 
 .puzzlelink:hover {
@@ -464,4 +476,16 @@ hr {
     font-family: "Cambria";
     font-style: italic;
     font-size: large;
+}
+
+.bronze{
+    color: rgb(199, 130, 66);
+}
+
+.silver{
+    color: silver;
+}
+
+.gold{
+    color: gold;
 }

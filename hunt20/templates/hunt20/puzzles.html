@@ -1,9 +1,10 @@
 {% extends "hunt20/base.html" %}
+{%block bodyclass%}{{background}}{% endblock bodyclass%}
 {% block content %}
 <h1 class="text-center mb-3">Puzzles</h1>
 <div>
     <div class="row justify-content-center">
-        <a href="{%url 'hunt20-round-archives' 1 %}" class="card m-3 bg-dark border border-warning col-6">
+        <a href="{%url 'hunt20-round-archives' 1 %}" class="card m-3 bg-dark border-light col-6 bronze">
             <div class="card-body">
                 <h3 class="card-title d-flex justify-content-center">
                 ROUND I
@@ -17,7 +18,7 @@
     </div>
     {% if in_round > 1 %}
         <div class="row justify-content-center">
-            <a href="{%url 'hunt20-round-archives' 2 %}" class="card m-3 bg-dark border border-warning col-6">
+            <a href="{%url 'hunt20-round-archives' 2 %}" class="card m-3 bg-dark border-light col-6 silver">
                 <div class="card-body">
                     <h3 class="card-title d-flex justify-content-center">
                     ROUND II
@@ -32,7 +33,7 @@
     {% endif %}
     {% if in_round > 2 %}
         <div class="row justify-content-center">
-            <a href="{%url 'hunt20-round-archives' 3 %}" class="card m-3 bg-dark border border-warning col-6">
+            <a href="{%url 'hunt20-round-archives' 3 %}" class="card m-3 bg-dark border-light col-6 gold">
                 <div class="card-body">
                     <h3 class="card-title d-flex justify-content-center">
                     ROUND III

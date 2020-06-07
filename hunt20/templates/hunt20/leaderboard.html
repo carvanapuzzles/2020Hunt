@@ -1,4 +1,5 @@
 {% extends "hunt20/base.html" %}
+{%block bodyclass%}{{background}}{% endblock bodyclass%}
 {% load tz %}
 {% block content %}
     <h1 class='text-center mb-3'>Leaderboard</h1>
@@ -12,27 +13,50 @@
             </tr>
         </thead>
         <tbody>   
-            {% for team in teams %}        
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>
-                        {% if team.total_solves == 14 %}
-                            🌴🌴🌴{{ team.name }}🌴🌴🌴
-                        {% else %}
-                            {{ team.name }}
-                        {% endif %}
-                    </td>
-                    <td>
-                        {{ team.total_solves }}
-                    </td> 
-                    <td>
-                        {%if team.total_solves > 0 %}
-                            {{team.last_solve_datetime|timezone:"MST"}}
-                        {%else%}
-                            ---
-                        {%endif%}
-                    </td>
-                </tr>
+            {% for team in teams %}
+                {% if user == team.username %}
+                    <tr class="text-warning">
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            {% if team.total_solves == 14 %}
+                                🏅🏅🏅{{ team.name }}🏅🏅🏅
+                            {% else %}
+                                {{ team.name }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {{ team.total_solves }}
+                        </td> 
+                        <td>
+                            {%if team.total_solves > 0 %}
+                                {{team.last_solve_datetime|timezone:"MST"}}
+                            {%else%}
+                                ---
+                            {%endif%}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            {% if team.total_solves == 14 %}
+                                🏅🏅🏅{{ team.name }}🏅🏅🏅
+                            {% else %}
+                                {{ team.name }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {{ team.total_solves }}
+                        </td> 
+                        <td>
+                            {%if team.total_solves > 0 %}
+                                {{team.last_solve_datetime|timezone:"MST"}}
+                            {%else%}
+                                ---
+                            {%endif%}
+                        </td>
+                    </tr>
+                {% endif %}
             {% endfor %}
         </tbody>  
     </table>

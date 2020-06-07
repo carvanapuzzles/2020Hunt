@@ -1,4 +1,5 @@
 {% extends "hunt20/base.html" %}
+{%block bodyclass%}{{background}}{% endblock bodyclass%}
 {% load crispy_forms_tags %}
 {% block content %}
 <h1 class="text-center mb-3">Hints</h1>
@@ -23,13 +24,13 @@
 <hr class="bg-light">
 <h2>Previous Hints</h2>
 {% for hint in hints %}
-    <div class="card bg-secondary my-3">
+    <div class="card hintcard my-3">
         <h4 class="card-title d-flex justify-content-center mt-2">Hint for {{hint.puzzle_name}}</h4>
         <div class="card-body mx-2">
             <h5>Hint Request:</h5>
             <p>{{hint.team_question}}<p>
-            <h5 class="text-warning">HQ Answer:</h5>
-            <p class="text-warning">{{hint.hq_ans}}</p>
+            <h5 class="text-primary">HQ Answer:</h5>
+            <p class="text-primary">{{hint.hq_ans}}</p>
         </div>
     </div>
 {% endfor %}

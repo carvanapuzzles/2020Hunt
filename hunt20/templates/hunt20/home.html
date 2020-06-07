@@ -1,4 +1,5 @@
 {% extends "hunt20/base.html" %}
+{%block bodyclass%}{{background}}{% endblock bodyclass%}
 {% load static%}
 {% block content %}
 <h1 class="text-center mb-3">Carvana Puzzle Hunt 2020</h1>
@@ -21,17 +22,21 @@
     <div class="col-4">
         <h3 class="text-center">Getting Started</h3>
         <ul>
+            {% if user.is_authenticated %}
+
+            {% else %}
             <li>
-                <a href="{%url 'hunt20-register' %}">Register</a> your team
+                <a class="text-primary" href="{%url 'hunt20-register' %}">Register</a> your team
+            </li>
+            {% endif %}
+            <li>
+                Read the <a class="text-primary" href="{%url 'hunt20-about' %}">Rules</a> and <a class="text-primary" href="{%url 'hunt20-faq' %}">FAQ</a>
             </li>
             <li>
-                Read the <a href="{%url 'hunt20-about' %}">Rules</a> and <a href="{%url 'hunt20-faq' %}">FAQ</a>
+                Read our <a class="text-primary" href="{%url 'hunt20-guide' %}">Intro to Solving</a> guide
             </li>
             <li>
-                Read our <a href="{%url 'hunt20-guide' %}">Intro to Solving</a> guide
-            </li>
-            <li>
-                Check out <a href="//thissandisyoursand.com">Last Year's Hunt</a>
+                Check out <a class="text-primary" href="//thissandisyoursand.com">Last Year's Hunt</a> (and solutions!)
             </li>
         </ul>
     </div>

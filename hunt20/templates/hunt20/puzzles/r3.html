@@ -10,8 +10,8 @@
     <div class="col-9">
         <h1 class='text-center mb-3'>Round III</h1>
         {% for puzzle in puzzles %}
-            <div>
-                <a class="puzzlelink" href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a> 
+            <div class="puzzlelinks">
+                <a href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a> 
                 {% if puzzle.puzzle_id in solved_ids %}
                     - <span class="text-success">{{puzzle.puzzle_ans}}</span>
                 {% else %}

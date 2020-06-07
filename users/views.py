@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from hunt20.models import Team
 from hunt20.models import Submission
 from django.contrib.auth.models import User
+from hunt20.globals import get_background
 
 def register(request):
     if request.method == 'POST':
@@ -27,7 +28,9 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
 
+@login_required
 def team(request, user_pk):
+    bg = get_background(request)
     if request.method == 'POST':
         form = AddMemberForm(request.POST, instance=request.user.team)
         if form.is_valid():
@@ -52,6 +55,7 @@ def team(request, user_pk):
     context = {
         'displayteam': Team.objects.filter(username__pk=user_pk).first(),
         'form' : form,
+        'background' : bg
     }
     return render(request, 'users/team.html', context = context)
 

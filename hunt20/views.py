@@ -12,23 +12,42 @@ from .models import HintRequest
 from .forms import SubmitForm
 from .forms import HintForm
 from django_slack import slack_message
-
+from .globals import get_background
 
 def home(request):
-    context = {}
+    bg = get_background(request)
+    context = {
+        'background': bg
+    }
     return render(request, 'hunt20/home.html', context)
 
 def invalid(request):
-    return render(request, 'hunt20/invalid.html')    
+    bg = get_background(request)
+    context = {
+        'background': bg
+    }
+    return render(request, 'hunt20/invalid.html', context)    
 
 def about(request):
-    return render(request, 'hunt20/about.html')
+    bg = get_background(request)
+    context = {
+        'background': bg
+    }
+    return render(request, 'hunt20/about.html', context)
 
 def faq(request):
-    return render(request, 'hunt20/faq.html')
+    bg = get_background(request)
+    context = {
+        'background': bg
+    }
+    return render(request, 'hunt20/faq.html', context)
 
 def guide(request):
-    return render(request, 'hunt20/guide.html')
+    bg = get_background(request)
+    context = {
+        'background': bg
+    }
+    return render(request, 'hunt20/guide.html', context)
 
 def error_404(request, exception):
     return render(request,'hunt20/invalid.html', status = 404)
@@ -37,8 +56,10 @@ def error_500(request):
     return render(request,'hunt20/error.html', status = 500)
 
 def leaderboard(request):
+    bg = get_background(request)
     context = {
         'teams': sorted(sorted(Team.objects.filter(username__is_superuser=False).filter(is_testsolver=False),key=lambda b: b.last_solve_datetime ), key=lambda a: a.total_solves, reverse=True), 
+        'background': bg
     }
     return render(request, 'hunt20/leaderboard.html', context)
 
@@ -54,9 +75,11 @@ def bigboard(request):
 
 @login_required
 def puzzles(request):
+    bg = get_background(request)
     context = {
         'puzzles': sorted(Puzzle.objects.all(),key=lambda b: b.puzzle_id),
         'in_round': request.user.team.in_round,
+        'background': bg,
     }
     return render(request, 'hunt20/puzzles.html', context)
 
@@ -207,6 +230,7 @@ def submit(request, puzzle_id):
 
 @login_required
 def hints(request):
+    bg = get_background(request)
     # STATUS = get_hunt_status()
     if request.method == 'POST':
         form = HintForm(user = request.user, data = request.POST)
@@ -238,5 +262,6 @@ def hints(request):
         'hints_available' : 10 - HintRequest.objects.filter(username=request.user.username).filter(refunded=False).count(),
         # 'status' : STATUS,
         'testsolver': request.user.team.is_testsolver,
+        'background': bg,
     }      
     return render(request, 'hunt20/hints.html', context=context)
