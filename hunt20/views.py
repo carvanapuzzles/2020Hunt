@@ -269,8 +269,161 @@ def hints(request):
 
 def insanity_check(request):
     s = request.GET.get("inputs")
-    if s[-10:]=='1111111111' and s[-11] != '1':
-        output = 'We did it!'
+    if s[-83:]=='1'*83:
+        if len(s)==83:
+            output = '~A~'
+        elif s[-84]!='1':
+            output = '~A~'
+        else:
+            output = 'I'
+    elif s[-69:]=='2'*69:
+        if len(s)==69:
+            output = '~S~'
+        elif s[-70]!='2':
+            output = '~S~'
+        else:
+            output = 'N'
+    elif s[-84:]=='3'*84:
+        if len(s)==84:
+            output = '~C~'
+        elif s[-85]!='3':
+            output = '~C~'
+        else:
+            output = 'S'
+    elif s[-79:]=='4'*79:
+        if len(s)==79:
+            output = '~I~'
+        elif s[-80]!='4':
+            output = '~I~'
+        else:
+            output = 'A'
+    elif s[-70:]=='5'*70:
+        if len(s)==70:
+            output = '~I~'
+        elif s[-71]!='5':
+            output = '~I~'
+        else:
+            output = 'N'
+    elif s[-50:]=='6'*50:
+        if len(s)==50:
+            output = '~!~'
+        elif s[-51]!='6':
+            output = '~!~'
+        else:
+            output = 'E'
+    #round2
+    elif s[-28:]=='12'*14:
+        if len(s)<30:
+            output = '~S~'
+        elif s[-30:-28]!='12':
+            output = '~S~'
+        else:
+            output = 'N'
+    elif s[-30:]=='13'*15:
+        if len(s)<32:
+            output = '~O~'
+        elif s[-32:-30]!='13':
+            output = '~O~'
+        else:
+            output = 'S'
+    elif s[-46:]=='14'*23:
+        if len(s)<48:
+            output = '~C~'
+        elif s[-48:-46]!='14':
+            output = '~C~'
+        else:
+            output = 'A'
+    elif s[-38:]=='15'*19:
+        if len(s)<40:
+            output = '~R~'
+        elif s[-40:-38]!='15':
+            output = '~R~'
+        else:
+            output = 'N'
+    elif s[-32:]=='16'*16:
+        if len(s)<34:
+            output = '~A~'
+        elif s[-34:-32]!='16':
+            output = '~A~'
+        else:
+            output = 'E'
+    elif s[-10:]=='23'*5:
+        if len(s)<12:
+            output = '~Z~'
+        elif s[-12:-10]!='23':
+            output = '~Z~'
+        else:
+            output = 'S'
+    elif s[-24:]=='24'*12:
+        if len(s)<26:
+            output = '~Y~'
+        elif s[-26:-24]!='24':
+            output = '~Y~'
+        else:
+            output = 'A'
+    elif s[-24:]=='25'*12:
+        if len(s)<26:
+            output = '~I~'
+        elif s[-26:-24]!='25':
+            output = '~I~'
+        else:
+            output = 'N'
+    elif s[-26:]=='26'*13:
+        if len(s)<28:
+            output = '~A~'
+        elif s[-28:-26]!='26':
+            output = '~A~'
+        else:
+            output = 'E'
+    elif s[-50:]=='34'*25:
+        if len(s)<52:
+            output = '~M~'
+        elif s[-52:-50]!='34':
+            output = '~M~'
+        else:
+            output = 'A'
+    elif s[-40:]=='35'*20:
+        if len(s)<42:
+            output = '~B~'
+        elif s[-42:-40]!='35':
+            output = '~B~'
+        else:
+            output = 'N'
+    elif s[-18:]=='36'*9:
+        if len(s)<20:
+            output = '~L~'
+        elif s[-20:-18]!='36':
+            output = '~L~'
+        else:
+            output = 'E'
+    elif s[-40:]=='45'*20:
+        if len(s)<42:
+            output = '~I~'
+        elif s[-42:-40]!='45':
+            output = '~I~'
+        else:
+            output = 'N'
+    elif s[-24:]=='46'*12:
+        if len(s)<26:
+            output = '~N~'
+        elif s[-26:-24]!='46':
+            output = '~N~'
+        else:
+            output = 'E'
+    elif s[-10:]=='56'*5:
+        if len(s)<12:
+            output = '~D~'
+        elif s[-12:-10]!='56':
+            output = '~D~'
+        else:
+            output = 'E'
+    #braille
+    elif s[-25:]=='2312452351124523234512456':
+        output = '~Hurley~'
+    #lost
+    elif s[-108:]==('1'*4)+('2'*8)+('3'*15)+('4'*16)+('5'*23)+('6'*42):
+        output = 'Your answer is the location of the art gallery known as "The Museum of Insanity"'
+    #base
     elif s[-1:]=='1':
         output = 'I'
     elif s[-1:]=='2':
