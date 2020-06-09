@@ -118,11 +118,11 @@
 
 
 body {
-    background-image: url("rings.jpg");
-    background-repeat: repeat;
+    background-image: url("puzzlympics_bg.png");
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: auto;
+    background-size: cover;
 
     /* background-color: slategray; */
     /* background-color: red; */
