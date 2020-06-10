@@ -3,13 +3,14 @@
 {% load board_tags %}
 {% block content %}
     <h1 class='text-center mb-3'>Big Board</h1>
+    <h3>Round I</h3>
     <table style="width:100%" class="table">
         <thead>
             <tr class="text-uppercase">
                 <th><small>Rk</small></th>
                 <th><small>Name</small></th>
                 <th><small>Slv</small></th>
-                {% for puzzle in puzzles %}
+                {% for puzzle in puzzles1 %}
                     <th><small>{{puzzle.get_abbr}}</small></th>
                 {% endfor %}
             </tr>
@@ -24,16 +25,20 @@
                     <td>
                         {{ team.total_solves }}
                     </td> 
-                    {% for puzzle in puzzles %}
+                    {% for puzzle in puzzles1 %}
                         {% has_solved_puzzle team puzzle.puzzle_id as solved %}
                         {% incorrect_answers_on_puzzle team puzzle.puzzle_id as incorrect_answers %}
+                        {% hints_taken_on_puzzle team puzzle.puzzle_name as hints_taken %}
 
                         {% if solved %}
                         <td style="background-color: rgba(20,230,20, .35)">
                             <small>
+                                {% if hints_taken > 0 %}
+                                    {{hints_taken}}h
+                                {% endif %}
                                 {% if incorrect_answers > 0 %}
                                     -{{incorrect_answers}}
-                                {% else %}
+                                {% elif hints_taken == 0 %}
                                 ✔✔
                                 {% endif %}
                             </small>
@@ -41,6 +46,9 @@
                         {% else %}
                         <td>
                             <small>
+                                {% if hints_taken > 0 %}
+                                    {{hints_taken}}h
+                                {% endif %}
                                 {% if incorrect_answers > 0 %}
                                     -{{incorrect_answers}}
                                 {% endif %}
@@ -52,6 +60,128 @@
                 </tr>  
                 
             
+            {% endfor %}
+        </tbody>  
+    </table>
+    <h3>Round II</h3>
+    <table style="width:100%" class="table">
+        <thead>
+            <tr class="text-uppercase">
+                <th><small>Rk</small></th>
+                <th><small>Name</small></th>
+                <th><small>Slv</small></th>
+                {% for puzzle in puzzles2 %}
+                    <th><small>{{puzzle.get_abbr}}</small></th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>  
+            {% for team in teams %}
+                {% if team.in_round > 1 %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            {{ team.name }}
+                        </td>
+                        <td>
+                            {{ team.total_solves }}
+                        </td> 
+                        {% for puzzle in puzzles2 %}
+                            {% has_solved_puzzle team puzzle.puzzle_id as solved %}
+                            {% incorrect_answers_on_puzzle team puzzle.puzzle_id as incorrect_answers %}
+                            {% hints_taken_on_puzzle team puzzle.puzzle_name as hints_taken %}
+
+                            {% if solved %}
+                            <td style="background-color: rgba(20,230,20, .35)">
+                                <small>
+                                    {% if hints_taken > 0 %}
+                                        {{hints_taken}}h
+                                    {% endif %}
+                                    {% if incorrect_answers > 0 %}
+                                        -{{incorrect_answers}}
+                                    {% elif hints_taken == 0 %}
+                                    ✔✔
+                                    {% endif %}
+                                </small>
+                            </td>
+                            {% else %}
+                            <td>
+                                <small>
+                                    {% if hints_taken > 0 %}
+                                        {{hints_taken}}h
+                                    {% endif %}
+                                    {% if incorrect_answers > 0 %}
+                                        -{{incorrect_answers}}
+                                    {% endif %}
+                                </small>
+                            </td>
+                            {% endif %}
+
+                        {% endfor %}
+                    </tr>  
+                    
+                {% endif %}
+            {% endfor %}
+        </tbody>  
+    </table>
+    <h3>Round III</h3>
+    <table style="width:100%" class="table">
+        <thead>
+            <tr class="text-uppercase">
+                <th><small>Rk</small></th>
+                <th><small>Name</small></th>
+                <th><small>Slv</small></th>
+                {% for puzzle in puzzles3 %}
+                    <th><small>{{puzzle.get_abbr}}</small></th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>  
+            {% for team in teams %}
+                {% if team.in_round > 2 %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            {{ team.name }}
+                        </td>
+                        <td>
+                            {{ team.total_solves }}
+                        </td> 
+                        {% for puzzle in puzzles3 %}
+                            {% has_solved_puzzle team puzzle.puzzle_id as solved %}
+                            {% incorrect_answers_on_puzzle team puzzle.puzzle_id as incorrect_answers %}
+                            {% hints_taken_on_puzzle team puzzle.puzzle_name as hints_taken %}
+
+                            {% if solved %}
+                            <td style="background-color: rgba(20,230,20, .35)">
+                                <small>
+                                    {% if hints_taken > 0 %}
+                                        {{hints_taken}}h
+                                    {% endif %}
+                                    {% if incorrect_answers > 0 %}
+                                        -{{incorrect_answers}}
+                                    {% elif hints_taken == 0 %}
+                                    ✔✔
+                                    {% endif %}
+                                </small>
+                            </td>
+                            {% else %}
+                            <td>
+                                <small>
+                                    {% if hints_taken > 0 %}
+                                        {{hints_taken}}h
+                                    {% endif %}
+                                    {% if incorrect_answers > 0 %}
+                                        -{{incorrect_answers}}
+                                    {% endif %}
+                                </small>
+                            </td>
+                            {% endif %}
+
+                        {% endfor %}
+                    </tr>  
+                
+                {% endif %}
             {% endfor %}
         </tbody>  
     </table>

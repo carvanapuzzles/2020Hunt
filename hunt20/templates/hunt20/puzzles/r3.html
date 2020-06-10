@@ -1,14 +1,20 @@
 {% extends "hunt20/base.html" %}
 {%block bodyclass%}northpole{% endblock bodyclass%}
 {% block content %}
+<h1 class='text-center mb-3'>Round III</h1>
 <div class="row">
-    <div class="col-3">
-        <p class="border p-2">
-            Welcome to round 3! Flavor flavor flavor! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo vitae saepe itaque, exercitationem sequi maiores! Architecto animi similique doloribus ratione ipsam corrupti, dolorum unde ducimus doloremque iure cum facere deleniti!
+    <div class="col-lg-6">
+        <p>
+            Well well well... It appears Santa Claus was in cahoots with Dr. Freezio and supplied her a getaway vehicle! That would explain how she disappeared so fast and also lends a little more credibility to those witnesses that claimed to see a flying sleigh leaving the scene of the crime. Hmm.
+        </p>
+        <p>
+            The investigation moves pretty quickly at this point and you unearth a motive. It appears that Santa is planning to unleash some sort of hellish campaign known as "Christmas in July" on the whole world! 
+        </p>
+        <p>
+            You round up a band of puzzlers from the crew that remains. Your mission is clear--travel to the North Pole, find Santa, and somehow stop the launch. It's quite a daunting task but it looks like it's up to you to save the world (and the puzzlympics but that's kind of a secondary concern now). Good luck!
         </p>
     </div>
-    <div class="col-9">
-        <h1 class='text-center mb-3'>Round III</h1>
+    <div class="col-lg-6">
         {% for puzzle in puzzles %}
             <div class="puzzlelinks">
                 <a href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a> 

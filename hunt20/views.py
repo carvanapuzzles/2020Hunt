@@ -70,7 +70,9 @@ def bigboard(request):
     else:
         context = {
             'teams': sorted(sorted(Team.objects.filter(username__is_superuser=False).filter(is_testsolver=False), key=lambda b: b.last_solve_datetime),key=lambda a: a.total_solves, reverse=True),
-            'puzzles': sorted(Puzzle.objects.all(),key=lambda b: b.puzzle_id),
+            'puzzles1': sorted(Puzzle.objects.filter(in_round=1),key=lambda b: b.puzzle_id),
+            'puzzles2': sorted(Puzzle.objects.filter(in_round=2),key=lambda b: b.puzzle_id),
+            'puzzles3': sorted(Puzzle.objects.filter(in_round=3),key=lambda b: b.puzzle_id),
         }
         return render(request, 'hunt20/bigboard.html', context)
 

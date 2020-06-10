@@ -1,14 +1,23 @@
 {% extends "hunt20/base.html" %}
 {%block bodyclass%}puzzlympics{% endblock bodyclass%}
 {% block content %}
+<h1 class='text-center mb-3'>Round I</h1>
 <div class="row">
-    <div class="col-3">
-        <p class="border p-2">
-            Welcome to the puzzlympics! Flavor flavor flavor! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo vitae saepe itaque, exercitationem sequi maiores! Architecto animi similique doloribus ratione ipsam corrupti, dolorum unde ducimus doloremque iure cum facere deleniti!
+    <div class="col-lg-6">
+        <p>
+            Ahhhh... the puzzlympics are finally here! You walk into the puzzlympic village with a smile on your face. It's a beautiful summer day and nothing can bring down your mood. Things. Are. Perfect.
+        </p>
+        <p>
+            Your state of bliss is interrupted as an event staffer walks up and hands you a flyer before hurrying off. You glance down at the headline.
+        </p>
+        <p>
+            CAUTION!! ESCAPED MAD SCIENTIST!
+        </p>
+        <p>
+            Well. That certainly puts a damper on things. But hey, this "Dr. Freezio" or whoever she is can wait. Sure, you'll keep an eye out, but for now it's time to explore before the opening ceremony kicks things off!
         </p>
     </div>
-    <div class="col-9">
-        <h1 class='text-center mb-3'>Round I</h1>
+    <div class="col-lg-6">
         {% for puzzle in puzzles %}
             <div class="puzzlelinks">
                 <a href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a> 

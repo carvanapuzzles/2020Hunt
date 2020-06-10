@@ -35,7 +35,7 @@ class Puzzle(models.Model):
     
     @property
     def get_abbr(self):
-        return str(self.puzzle_name).replace(" ","")[:4]
+        return str(self.puzzle_name).replace(" ","")[:5]
     
 class Team(models.Model):
     username = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
@@ -90,13 +90,13 @@ class Team(models.Model):
         return 10 - hints_taken
     
     def has_solved_puzzle(self, puzzle_id):
-        return Submission.objects.filter(username=self.username).filter(correct=True).filter(puzzle_id=puzzle_id).exists()
+        return Submission.objects.filter(username=self.username).filter(correct=True).filter(puzzle__puzzle_id=puzzle_id).exists()
 
     def hints_taken_on_puzzle(self, puzzle_name):
         return HintRequest.objects.filter(username=self.username).filter(puzzle_name=puzzle_name).filter(refunded=False).count()
     
     def incorrect_answers_on_puzzle(self, puzzle_id):
-        return Submission.objects.filter(username=self.username).filter(correct=False).filter(puzzle_id=puzzle_id).count()
+        return Submission.objects.filter(username=self.username).filter(correct=False).filter(puzzle__puzzle_id=puzzle_id).count()
 
 @receiver(post_save, sender=User)
 def create_team(sender, instance, created, **kwargs):

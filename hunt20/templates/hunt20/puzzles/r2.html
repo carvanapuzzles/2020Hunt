@@ -1,14 +1,26 @@
 {% extends "hunt20/base.html" %}
 {%block bodyclass%}snowflake{% endblock bodyclass%}
 {% block content %}
+<h1 class='text-center mb-3'>Round II</h1>
 <div class="row">
-    <div class="col-3">
-        <p class="border p-2">
-            Welcome to round 2! Flavor flavor flavor! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo vitae saepe itaque, exercitationem sequi maiores! Architecto animi similique doloribus ratione ipsam corrupti, dolorum unde ducimus doloremque iure cum facere deleniti!
+    <div class="col-lg-6">
+        <p>
+            WHOOOOSHH!
+        </p>
+        <p>
+            With a single blast from her atmospheric freeze ray, Dr. Freezio turns the entire stadium into a snowbowl as a blizzard descends out of nowehere. Now you can see why that flier was distributed.
+        </p>
+        <p>
+            Chaos reigns for a few minutes as everyone rushes for cover and tries to find some snow gear (which unfortunately wasn't on the packing list). You reconvene only to find--gasp!--the puzzlympic torch has been stolen!
+        </p>
+        <p>
+            Now you've got a couple problems. Not only is the resulting weather a severe detriment to the planned events (the beach sudoku competition would be absolutely miserable in these conditions), but puzzlympic tradition demands the torch must be present for every medal ceremony.
+        </p>
+        <p>
+            It's clear the Doctor wasn't working alone and, to make matters worse, she's disappeared. Time to look for some clues... Maybe you'll be able to track her down.
         </p>
     </div>
-    <div class="col-9">
-        <h1 class='text-center mb-3'>Round II</h1>
+    <div class="col-lg-6">
         {% for puzzle in puzzles %}
             <div class="puzzlelinks">
                 <a href="{%url 'hunt20-puzzle-archives' puzzle.puzzle_id %}">{{puzzle.puzzle_name}}</a> 

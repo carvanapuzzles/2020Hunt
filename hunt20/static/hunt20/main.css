@@ -478,6 +478,10 @@ hr {
     font-size: large;
 }
 
+#metablanks{
+    text-align: center;
+}
+
 .bronze{
     color: rgb(199, 130, 66);
 }
