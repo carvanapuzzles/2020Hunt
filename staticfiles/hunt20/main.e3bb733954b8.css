@@ -1,0 +1,495 @@
+@font-face {
+    font-family: 'benguiatbold';
+    src: url("benguiat_bold-webfont.58e3a759954d.woff2") format('woff2'),
+         url("benguiat_bold-webfont.e5a0e299d7cb.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#bodyst{
+    background-color: black;
+    background-image: none;
+    color: whitesmoke;
+    font-family: 'benguiatbold';
+    word-wrap: break-word
+}
+
+#bodyst .main {
+    background-color: black;
+    border: 1px solid red;
+}
+
+#snowflake{
+    background-image: url("snowflakes_bg.dc9f52e14ed9.png");
+    background-repeat: auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    word-wrap: break-word
+}
+
+#snowflake .main {
+    background-color:rgba(10, 10, 10, .87);
+    border: 1px solid silver;
+    font-family: 'Coustard';
+    color: white;
+}
+
+#snowflake .puzzlelinks a {
+    color: rgb(192, 192, 192);
+}
+
+#snowflake .puzzlelinks a:hover {
+    color: gold;
+}
+
+#snowflake .hintcard {
+    border-color: white;
+    background-color: black;
+}
+
+#northpole .accent {
+    color: forestgreen;
+}
+
+
+#northpole{
+    background-image: url("northpole_bg.053e0ff6adb2.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    word-wrap: break-word
+}
+
+#northpole .main {
+    background-color: rgba(240, 240, 240, .97);
+    border: 1px solid red;
+    color: black;
+    font-family: 'Georgia';
+}
+
+#northpole .puzzlelinks a {
+    color: forestgreen;
+}
+
+#northpole .puzzlelinks a:hover {
+    color: red;  
+}
+
+#northpole .hintcard {
+    border-color: black;
+    background-color: white;
+}
+
+#puzzlympics .main {
+    background-color: rgba(45, 45, 45, .9);
+    border: 1px solid gold;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-family: 'Spartan';
+}
+
+#puzzlympics .hintcard {
+    border-color: white;
+    background: rgb(100, 100, 100);
+}
+
+
+#tt {
+    background-image: url("desert.0147d643a667.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    /* background-color: slategray; */
+    /* background-color: red; */
+    color: whitesmoke;
+    font-family: Arvo;
+}
+
+#tt .main {
+    background-color: rgba(50, 50, 50, .7);
+    border: 1px solid silver;
+    margin-bottom: 1rem;
+}
+
+
+body {
+    background-image: url("puzzlympics_bg.595476d28d76.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    /* background-color: slategray; */
+    /* background-color: red; */
+    color: whitesmoke;
+    font-family: Spartan;
+}
+
+
+
+.navbar {
+    background-color: rgba(90, 90, 90, .9);
+    font-family: 'Spartan';
+}
+
+.navbar a {
+    color: gold; 
+}
+
+.navbar a:hover {
+    color: white; 
+}
+
+a  {
+    color: rgb(194, 125, 61);
+}
+
+a:hover {
+    color: whitesmoke;
+}
+
+.puzzlelink {
+    color: rgb(194, 125, 61);
+}
+
+.puzzlelink:hover {
+    color: gold;  
+}
+
+.helptext {
+    color: red;
+}
+
+.hunttitle{
+    font-family: Cutive;
+}
+
+#titlearea{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+#mainin{
+    background-color: transparent;
+}
+
+.main {
+    background-color: rgba(45, 45, 45, .9);
+    border: 1px solid gold;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.content {
+    margin: 1rem;
+}
+
+.asteriskField {
+    display: none;
+}
+
+label {
+    margin-right: 0.5rem;
+}
+
+#title-st{
+    color: red;
+}
+
+#main-st{
+    background-color: black;
+}
+
+.crossword{
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: .75em
+}
+
+.crossword td{
+    border: 1px solid black;
+    width: 35px;
+    height: 35px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.crossword .fill{
+    background-color: black;
+}
+
+.soilbox{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em
+}
+
+.soilbox td{
+    border: 1px solid black;
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.soilbox .c{
+    background-color: transparent;
+    border: none;
+}
+
+.flavor {
+    font-style: italic;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.dropquote td{
+    width: 35px;
+    text-align: center;
+}
+
+.crossword #big{
+    font-size: 1rem;
+    text-align: center;
+}
+
+.freecross{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.freecross td{
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.freecross .cell{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.freecross .fill{
+    background-color: black;
+    border: 1px solid black;
+    color: black;
+}
+
+.numberlink{
+    font-family: 'Times New Roman', Times, serif;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    font-size: .75rem;
+}
+
+.numberlink td{
+    border: 1px dashed black;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.numberlink #num{
+    font-size: 2rem;
+}
+
+.barcross{
+    font-family: 'Times New Roman', Times, serif;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    font-size: .6rem;
+}
+
+.barcross td{
+    border: 1px dashed rgba(50, 50, 50, .3);
+    width: 30px;
+    height: 30px;
+    text-align: left;
+    vertical-align: top;
+    padding: 2px;
+}
+
+.barcross #l{
+    border-left: 2px solid black;
+}
+
+.barcross #t{
+    border-top: 2px solid black;
+}
+
+.town{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: lightgray;
+    border: 2px solid black;
+    color: black;
+}
+
+.town td{
+    border: 1px dashed rgba(50, 50, 50, .3);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.town .bl{
+    background-color: rgb(126, 200, 80);
+}
+
+.town .l{
+    border-left: 2px solid black;
+}
+
+.town .t{
+    border-top: 2px solid black;
+}
+
+.metagrid{
+    font-family: 'Times New Roman', Times, serif;
+    border: 4px solid black;
+    background-color: tan;
+    color: black;
+}
+
+.metagrid td{
+    border: 1px dashed black;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: center;
+}
+
+.metagrid .out{
+    background-color: gray;
+}
+
+.metagrid .e{
+    border-right: 4px solid black;
+}
+
+.metagrid .s{
+    border-bottom: 4px solid black;
+}
+
+.metagrid .w{
+    border-left: 4px solid black;
+}
+
+.metagrid .n{
+    border-top: 4px solid black;
+}
+
+#hintsubmit input[type="text"] {
+    height: 200px;
+}
+
+.wordsearch{
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.wordsearch td{
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    vertical-align: center;
+    border: 1px solid black;
+}
+
+.crossword-sol{
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em
+}
+
+.crossword-sol td{
+    border: 1px solid black;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    vertical-align: center;
+}
+
+.crossword-sol .fill{
+    background-color: black;
+}
+
+.rules li{
+    margin-bottom: .5rem;
+}
+
+#homelist a{
+    color: #007bff;
+}
+
+.area{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: white;
+    color: black;
+    font-size: .75rem;
+}
+
+.area td{
+    border: 1px dashed black;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: center;
+}
+
+.area .s{
+    border-bottom: 3px solid black;
+}
+
+.area .e{
+    border-right: 3px solid black;
+}
+
+#spaced div{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.25rem;
+}
+
+hr {
+    border-color: gold;
+}
+
+#math{
+    font-family: "Cambria";
+    font-style: italic;
+    font-size: large;
+}
+
+#metablanks{
+    text-align: center;
+}
+
+.bronze{
+    color: rgb(199, 130, 66);
+}
+
+.silver{
+    color: silver;
+}
+
+.gold{
+    color: gold;
+}
