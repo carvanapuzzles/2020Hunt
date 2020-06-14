@@ -493,3 +493,15 @@ hr {
 .gold{
     color: gold;
 }
+
+.flight{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: gainsboro;
+    text-align: center;
+}
+
+.flight td{
+    border: white 1px solid;
+    padding: 5px;
+}
