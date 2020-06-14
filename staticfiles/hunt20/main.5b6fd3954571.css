@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'benguiatbold';
-    src: url('benguiat_bold-webfont.woff2') format('woff2'),
-         url('benguiat_bold-webfont.woff') format('woff');
+    src: url("benguiat_bold-webfont.58e3a759954d.woff2") format('woff2'),
+         url("benguiat_bold-webfont.e5a0e299d7cb.woff") format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -21,7 +21,7 @@
 }
 
 #snowflake{
-    background-image: url("snowflakes_bg.png");
+    background-image: url("snowflakes_bg.dc9f52e14ed9.png");
     background-repeat: auto;
     background-attachment: fixed;
     background-position: center;
@@ -55,7 +55,7 @@
 
 
 #northpole{
-    background-image: url("northpole_bg.png");
+    background-image: url("northpole_bg.053e0ff6adb2.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -98,7 +98,7 @@
 
 
 #tt {
-    background-image: url("desert.jpg");
+    background-image: url("desert.0147d643a667.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -118,7 +118,7 @@
 
 
 body {
-    background-image: url("puzzlympics_bg.png");
+    background-image: url("puzzlympics_bg.595476d28d76.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
