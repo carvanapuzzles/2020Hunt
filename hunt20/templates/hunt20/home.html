@@ -20,25 +20,41 @@
         <p>Carvana employees and their family and friends can begin solving on Thursday June 25 at 12 pm AZ time. The Puzzlympic Games will run for exactly a week, concluding on Thursday July 2 at 12 pm AZ time.</p>
     </div>
     <div class="col-4">
-        <h3 class="text-center">Getting Started</h3>
-        <ul>
-            {% if user.is_authenticated %}
+        {% if status == 'post' %}
+            <h3 class="text-center">Hunt is over!</h3>
+            <p>Thanks for participating! Now make sure to:</p>
+            <ul>
+                <li>
+                    Check out solutions! (Now available from puzzle pages)
+                </li>
+                <li>
+                    Fill out our <a class="text-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc3dv0xulPNaCEElz2uKSOaYawISjqViPDo5scvCE5XOpIZmQ/viewform?usp=sf_link">hunt feedback form</a>!
+                </li>
+                <li>
+                    Stop by our zoom wrap-up! (Email invite forthcoming)
+                </li>
+            </ul>
+        {% else %}
+            <h3 class="text-center">Getting Started</h3>
+            <ul>
+                {% if user.is_authenticated %}
 
-            {% else %}
-            <li>
-                <a class="text-primary" href="{%url 'hunt20-register' %}">Register</a> your team
-            </li>
-            {% endif %}
-            <li>
-                Read the <a class="text-primary" href="{%url 'hunt20-about' %}">Rules</a> and <a class="text-primary" href="{%url 'hunt20-faq' %}">FAQ</a>
-            </li>
-            <li>
-                Read our <a class="text-primary" href="{%url 'hunt20-guide' %}">Intro to Solving</a> guide
-            </li>
-            <li>
-                Check out <a class="text-primary" href="//thissandisyoursand.com">Last Year's Hunt</a> (and solutions!)
-            </li>
-        </ul>
+                {% else %}
+                <li>
+                    <a class="text-primary" href="{%url 'hunt20-register' %}">Register</a> your team
+                </li>
+                {% endif %}
+                <li>
+                    Read the <a class="text-primary" href="{%url 'hunt20-about' %}">Rules</a> and <a class="text-primary" href="{%url 'hunt20-faq' %}">FAQ</a>
+                </li>
+                <li>
+                    Read our <a class="text-primary" href="{%url 'hunt20-guide' %}">Intro to Solving</a> guide
+                </li>
+                <li>
+                    Check out <a class="text-primary" href="//thissandisyoursand.com">Last Year's Hunt</a> (and solutions!)
+                </li>
+            </ul>
+        {% endif %}
     </div>
 </div>
 {% endblock content %}

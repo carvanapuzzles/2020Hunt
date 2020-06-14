@@ -3,35 +3,54 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <h1 class="text-center mb-3">Hints</h1>
-<h2>New Hint Request (Available Hints: {{hints_available}})</h2>
-{% if hints_available > 0 %}
-    <h6>Tell us what you've tried so far/thought about, confirm clues, ask for advice, etc...</h6>
-    <h6>We'll respond as fast as we can (response will appear on this page)</h6>
-    <form class="justify-content-center" action="" method="POST" id="hintsubmit">
-        {% csrf_token %}
-        <fieldset>
-            {{ form|crispy }}
-        </fieldset>
-        <button class="btn btn-info" type="submit" id="hintbutton">
-            Submit Hint Request
-        </button>
-    </form>
-{% else %}
-    <h4>
-        You're out of hints! Contact carvanapuzzles@gmail.com if you would like to clarify a previous answer or ask for more hints 
-    </h4>
-{% endif %}
-<hr class="bg-light">
-<h2>Previous Hints</h2>
-{% for hint in hints %}
-    <div class="card hintcard my-3">
-        <h4 class="card-title d-flex justify-content-center mt-2">Hint for {{hint.puzzle_name}}</h4>
-        <div class="card-body mx-2">
-            <h5>Hint Request:</h5>
-            <p>{{hint.team_question}}<p>
-            <h5 class="text-primary">HQ Answer:</h5>
-            <p class="text-primary">{{hint.hq_ans}}</p>
+{% if status == 'pre' %}
+    <h2 class="text-center">Hints will be available when hunt launches</h2>
+    <h4>(Thursday, June 25th at 12 pm AZ time)</h4>
+{% elif status == 'post' %}
+    <h2 class="text-center mb-3">Hunt is over! Thanks for participating!</h2>
+    <h2>Previous Hints</h2>
+    {% for hint in hints %}
+        <div class="card hintcard my-3">
+            <h4 class="card-title d-flex justify-content-center mt-2">Hint for {{hint.puzzle_name}}</h4>
+            <div class="card-body mx-2">
+                <h5>Hint Request:</h5>
+                <p>{{hint.team_question}}<p>
+                <h5 class="text-primary">HQ Answer:</h5>
+                <p class="text-primary">{{hint.hq_ans}}</p>
+            </div>
         </div>
-    </div>
-{% endfor %}
+    {% endfor %}
+{% else %}
+    <h2>New Hint Request (Available Hints: {{hints_available}})</h2>
+    {% if hints_available > 0 %}
+        <h6>Tell us what you've tried so far/thought about, confirm clues, ask for advice, etc...</h6>
+        <h6>We'll respond as fast as we can (response will appear on this page)</h6>
+        <form class="justify-content-center" action="" method="POST" id="hintsubmit">
+            {% csrf_token %}
+            <fieldset>
+                {{ form|crispy }}
+            </fieldset>
+            <button class="btn btn-info" type="submit" id="hintbutton">
+                Submit Hint Request
+            </button>
+        </form>
+    {% else %}
+        <h4>
+            You're out of hints! Contact carvanapuzzles@gmail.com if you would like to clarify a previous answer or ask for more hints 
+        </h4>
+    {% endif %}
+    <hr class="bg-light">
+    <h2>Previous Hints</h2>
+    {% for hint in hints %}
+        <div class="card hintcard my-3">
+            <h4 class="card-title d-flex justify-content-center mt-2">Hint for {{hint.puzzle_name}}</h4>
+            <div class="card-body mx-2">
+                <h5>Hint Request:</h5>
+                <p>{{hint.team_question}}<p>
+                <h5 class="text-primary">HQ Answer:</h5>
+                <p class="text-primary">{{hint.hq_ans}}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
 {% endblock content %}

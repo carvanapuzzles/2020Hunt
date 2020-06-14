@@ -19,21 +19,30 @@
 </head>
 <body id="{% block bodyclass %}{% endblock %}">
     <header class="site-header">
-        <nav class="navbar justify-content-between navbar-expand-lg">
-            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-home' %}">Home</a>                  
-            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-about' %}">About/Rules</a>
-            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-puzzles' %}">Puzzles</a>
-            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-hints' %}">Hints</a>
-            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-leaderboard' %}">Leaderboard</a>
-            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-faq' %}">FAQ</a>
-            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-guide' %}">Guide</a>
-            {% if user.is_authenticated %}
-                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-team' user.pk %}">{{ user.team.name }}</a>
-                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-logout' %}">Log Out</a>
-            {% else %}
-                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-login' %}">Login</a>
-                <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-register' %}">Register</a>
-            {% endif %}
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-home' %}">Carvana Puzzle Hunt 2020</a>  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler2" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggler2">
+                <div class="navbar-collapse justify-content-start">                              
+                    <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-about' %}">About/Rules</a>
+                    <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-puzzles' %}">Puzzles</a>
+                    <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-hints' %}">Hints</a>
+                    <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-leaderboard' %}">Leaderboard</a>
+                    <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-faq' %}">FAQ</a>
+                    <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-guide' %}">Guide</a>
+                </div>
+                <div class="navbar-collapse justify-content-end">
+                    {% if user.is_authenticated %}
+                        <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-team' user.pk %}">{{ user.team.name|truncatechars:50 }}</a>
+                        <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-logout' %}">Log Out</a>
+                    {% else %}
+                        <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-login' %}">Login</a>
+                        <a class="nav-item nav-link nav-collapse" href="{%url 'hunt20-register' %}">Register</a>
+                    {% endif %}
+                </div>
+            </div>
         </nav>
     </header>
     <div class="container main rounded">

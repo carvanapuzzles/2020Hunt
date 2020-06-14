@@ -2,21 +2,71 @@
 {%block bodyclass%}{{background}}{% endblock bodyclass%}
 {% block content %}
 <h1 class="text-center mb-3">Puzzles</h1>
-<div>
-    <div class="row justify-content-center">
-        <a href="{%url 'hunt20-round-archives' 1 %}" class="card m-3 bg-dark border-light col-6 bronze">
-            <div class="card-body">
-                <h3 class="card-title d-flex justify-content-center">
-                ROUND I
-                </h4>
-    
-                <div class="card-text d-flex justify-content-center">
-                    "Things won are done, joy's soul lies in the puzzling"
+{{status}}
+{% if status == 'pre' %}
+    <h2>Hunt hasn't started yet!</h2>
+{% elif status == 'active' %}
+    <div>
+        <div class="row justify-content-center">
+            <a href="{%url 'hunt20-round-archives' 1 %}" class="card m-3 bg-dark border-light col-6 bronze">
+                <div class="card-body">
+                    <h3 class="card-title d-flex justify-content-center">
+                    ROUND I
+                    </h4>
+        
+                    <div class="card-text d-flex justify-content-center">
+                        "Things won are done, joy's soul lies in the puzzling"
+                    </div>
                 </div>
+            </a>
+        </div>
+        {% if in_round > 1 %}
+            <div class="row justify-content-center">
+                <a href="{%url 'hunt20-round-archives' 2 %}" class="card m-3 bg-dark border-light col-6 silver">
+                    <div class="card-body">
+                        <h3 class="card-title d-flex justify-content-center">
+                        ROUND II
+                        </h4>
+            
+                        <div class="card-text d-flex justify-content-center">
+                            "Nearly all men can stand adversity, but if you want to test a man's character, give him puzzles"
+                        </div>
+                    </div>
+                </a>
             </div>
-        </a>
+        {% endif %}
+        {% if in_round > 2 %}
+            <div class="row justify-content-center">
+                <a href="{%url 'hunt20-round-archives' 3 %}" class="card m-3 bg-dark border-light col-6 gold">
+                    <div class="card-body">
+                        <h3 class="card-title d-flex justify-content-center">
+                        ROUND III
+                        </h4>
+            
+                        <div class="card-text d-flex justify-content-center">
+                            "The keenest sorrow is to recognize ourselves as the sole cause of all our puzzles"
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endif %}
     </div>
-    {% if in_round > 1 %}
+{% else %}
+    <div>
+        <div class="row justify-content-center">
+            <a href="{%url 'hunt20-round-archives' 1 %}" class="card m-3 bg-dark border-light col-6 bronze">
+                <div class="card-body">
+                    <h3 class="card-title d-flex justify-content-center">
+                    ROUND I
+                    </h4>
+        
+                    <div class="card-text d-flex justify-content-center">
+                        "Things won are done, joy's soul lies in the puzzling"
+                    </div>
+                </div>
+            </a>
+        </div>
+
         <div class="row justify-content-center">
             <a href="{%url 'hunt20-round-archives' 2 %}" class="card m-3 bg-dark border-light col-6 silver">
                 <div class="card-body">
@@ -30,8 +80,7 @@
                 </div>
             </a>
         </div>
-    {% endif %}
-    {% if in_round > 2 %}
+
         <div class="row justify-content-center">
             <a href="{%url 'hunt20-round-archives' 3 %}" class="card m-3 bg-dark border-light col-6 gold">
                 <div class="card-body">
@@ -45,6 +94,7 @@
                 </div>
             </a>
         </div>
-    {% endif %}
-</div>
+    
+    </div>
+{% endif %}
 {% endblock content %}

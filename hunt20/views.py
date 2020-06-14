@@ -12,13 +12,15 @@ from .models import HintRequest
 from .forms import SubmitForm
 from .forms import HintForm
 from django_slack import slack_message
-from .globals import get_background
+from .globals import get_background, get_hunt_status, get_avail_hints
 from django.http import JsonResponse
 
 def home(request):
+    STATUS = get_hunt_status()
     bg = get_background(request)
     context = {
-        'background': bg
+        'background': bg,
+        'status': STATUS,
     }
     return render(request, 'hunt20/home.html', context)
 
@@ -78,18 +80,29 @@ def bigboard(request):
 
 @login_required
 def puzzles(request):
+    STATUS = get_hunt_status()
     bg = get_background(request)
     context = {
         'puzzles': sorted(Puzzle.objects.all(),key=lambda b: b.puzzle_id),
         'in_round': request.user.team.in_round,
         'background': bg,
+        'status': STATUS,
     }
     return render(request, 'hunt20/puzzles.html', context)
 
 @login_required
 def round_archives(request, round_num):
-    if int(round_num) > request.user.team.in_round:
+    STATUS = get_hunt_status()
+    if STATUS=='post':
+        context = {
+            'puzzles': sorted(Puzzle.objects.filter(in_round=round_num),key=lambda b: b.puzzle_id),
+            'solved_ids': Submission.objects.filter(correct=True).filter(username=request.user.username).values_list('puzzle__puzzle_id', flat=True),
+        }
+        return render(request, 'hunt20/puzzles/r' + round_num + '.html', context)
+    
+    elif int(round_num) > request.user.team.in_round or (STATUS=='pre' and request.user.is_superuser is False):
         return redirect('hunt20-invalid')
+    
     else:
         context = {
             'puzzles': sorted(Puzzle.objects.filter(in_round=round_num).filter(unlocks_at__lte=request.user.team.round_solves(round_num)),key=lambda b: b.puzzle_id),
@@ -99,9 +112,21 @@ def round_archives(request, round_num):
 
 @login_required
 def puzzle_archives(request, puzzle_id):
+    STATUS = get_hunt_status()
     puzzle = Puzzle.objects.filter(puzzle_id=puzzle_id).first()
-    
-    if (int(puzzle.in_round) > request.user.team.in_round) or (puzzle.unlocks_at > request.user.team.round_solves(puzzle.in_round)):
+
+    if STATUS=='post':
+        context = {
+            'teams': Team.objects.all(),
+            'puzzle_id': puzzle_id,
+            'puzzle': Puzzle.objects.filter(puzzle_id=puzzle_id).first(),
+            'solved': False,
+            'status': STATUS,
+        }
+        puzzle_html = 'hunt20/puzzles/' + puzzle_id + '.html'
+        return render(request, puzzle_html, context)
+
+    elif (STATUS=='pre' and request.user.is_superuser is False) or ((int(puzzle.in_round) > request.user.team.in_round) or (puzzle.unlocks_at > request.user.team.round_solves(puzzle.in_round))):
         return redirect('hunt20-invalid')
 
     else:
@@ -115,11 +140,12 @@ def puzzle_archives(request, puzzle_id):
             'puzzle_id': puzzle_id,
             'puzzle': Puzzle.objects.filter(puzzle_id=puzzle_id).first(),
             'solved': solved,
-            'status': "active", # change later
+            'status': STATUS, # change later
         }
         puzzle_html = 'hunt20/puzzles/' + puzzle_id + '.html'
         return render(request, puzzle_html, context)
 
+@login_required
 def solution_archives(request, puzzle_id):
     
     context = {
@@ -131,7 +157,7 @@ def solution_archives(request, puzzle_id):
 
 @login_required
 def submit(request, puzzle_id):
-    STATUS = "active"
+    STATUS = get_hunt_status()
 
     puzzle = Puzzle.objects.filter(puzzle_id=puzzle_id).first()
 
@@ -233,8 +259,9 @@ def submit(request, puzzle_id):
 
 @login_required
 def hints(request):
+    HINTS = get_avail_hints()
     bg = get_background(request)
-    # STATUS = get_hunt_status()
+    STATUS = get_hunt_status()
     if request.method == 'POST':
         form = HintForm(user = request.user, data = request.POST)
         if form.is_valid():
@@ -262,10 +289,10 @@ def hints(request):
         'hints': sorted(HintRequest.objects.filter(username=request.user.username), key=lambda b: b.eventdatetime, reverse=True),
         'form': form,
         'open_puzzles': Puzzle.objects.filter(Q(in_round__lte=request.user.team.in_round)),
-        'hints_available' : 10 - HintRequest.objects.filter(username=request.user.username).filter(refunded=False).count(),
-        # 'status' : STATUS,
+        'hints_available' : HINTS - HintRequest.objects.filter(username=request.user.username).filter(refunded=False).count(),
         'testsolver': request.user.team.is_testsolver,
         'background': bg,
+        'status': STATUS,
     }      
     return render(request, 'hunt20/hints.html', context=context)
 
