@@ -2,20 +2,39 @@
 {%block bodyclass%}{% block bodyst %}{% endblock %}{% endblock bodyclass%}
 {% block content %}
     <div id="main">
+        <div class="row mb-2 justify-content-between align-items-center d-lg-none" data-toggle="collapse">
+            <span class="text-small text-nowrap" id="ans">
+                <a href="{%url 'hunt20-round-archives' puzzle.in_round %}" class="btn btn-primary">Back to Round</a>
+            </span>
+
+
+            <span class="text-small text-nowrap" id="ans">
+                {% if status == "post" %}
+                    <a href="{%url 'hunt20-solution-archives' puzzle_id %}" class="btn btn-warning">View Solution</a>
+                {% else %}
+                    {% if solved %}
+                        <a href="{%url 'hunt20-submit' puzzle_id %}" class="btn btn-warning">Submissions</a>
+                    {% else %}
+                        <a href="{%url 'hunt20-submit' puzzle_id %}" class="btn btn-warning">Submit Answer</a>
+                    {% endif %}
+                {% endif %}
+            </span>
+
+        </div>
         <div class="row border-bottom justify-content-between align-items-center p-2" id="puzzletop">
-            <div class="col-2">
+            <div class="col-lg-2 collapse d-lg-block">
                 <span class="text-small text-nowrap" id="ans">
                     <a href="{%url 'hunt20-round-archives' puzzle.in_round %}" class="btn btn-primary">Back to Round</a>
                 </span>
             </div>
-            <div class="col-8">
+            <div class="col-lg-8">
                 <div class="" id="titlearea">
                     <h1 class="" id="title">
                         {{puzzle.puzzle_name}}
                     </h1>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 collapse d-lg-block">
                 <span class="text-small text-nowrap" id="ans">
                     {% if status == "post" %}
                         <a href="{%url 'hunt20-solution-archives' puzzle_id %}" class="btn btn-warning">View Solution</a>

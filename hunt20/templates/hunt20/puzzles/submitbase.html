@@ -3,20 +3,25 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div id="main">
+        <div class="row mb-2 justify-content-between align-items-center d-lg-none" data-toggle="collapse">
+            <span class="text-small text-nowrap" id="ans">
+                <a href="{%url 'hunt20-puzzle-archives' puzzle_id %}" class="btn btn-primary">Back to Puzzle</a>
+            </span>
+        </div>
         <div class="row border-bottom justify-content-between align-items-center p-2" id="puzzletop">
-            <div class="col-2">
+            <div class="col-lg-2 collapse d-lg-block">
                 <span class="text-small text-nowrap" id="ans">
                     <a href="{%url 'hunt20-puzzle-archives' puzzle_id %}" class="btn btn-primary">Back to Puzzle</a>
                 </span>
             </div>
-            <div class="col-8">
+            <div class="col-lg-8">
                 <div class="" id="titlearea">
                     <h1 class="" id="title">                    
                         {{ puzzle.puzzle_name }}
                     </h1>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2">
 
             </div>
         </div>
