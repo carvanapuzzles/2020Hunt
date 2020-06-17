@@ -505,3 +505,36 @@ hr {
     border: white 1px solid;
     padding: 5px;
 }
+
+.stats{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(256, 0, 0,.4);
+    border: 2px solid black;
+    color: black;
+}
+
+.stats .g{
+    background-color: rgba(0, 256, 0,.4);
+}
+
+.stats .b{
+    background-color: rgba(0, 174, 217,1);
+}
+
+
+.stats td{
+    border: 1px dashed rgba(50, 50, 50, .3);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.stats .l{
+    border-left: 2px solid black;
+}
+
+.stats .t{
+    border-top: 2px solid black;
+}
