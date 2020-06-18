@@ -78,6 +78,18 @@ def bigboard(request):
         }
         return render(request, 'hunt20/bigboard.html', context)
 
+def testsolving(request):
+    if request.user.is_superuser is False:
+        return redirect('hunt20-invalid')
+    else:
+        context = {
+            'teams': sorted(sorted(Team.objects.filter(username__is_superuser=False).filter(is_testsolver=True), key=lambda b: b.last_solve_datetime),key=lambda a: a.total_solves, reverse=True),
+            'puzzles1': sorted(Puzzle.objects.filter(in_round=1),key=lambda b: b.puzzle_id),
+            'puzzles2': sorted(Puzzle.objects.filter(in_round=2),key=lambda b: b.puzzle_id),
+            'puzzles3': sorted(Puzzle.objects.filter(in_round=3),key=lambda b: b.puzzle_id),
+        }
+        return render(request, 'hunt20/bigboard.html', context)
+
 @login_required
 def puzzles(request):
     STATUS = get_hunt_status()
@@ -100,7 +112,7 @@ def round_archives(request, round_num):
         }
         return render(request, 'hunt20/puzzles/r' + round_num + '.html', context)
     
-    elif int(round_num) > request.user.team.in_round or (STATUS=='pre' and request.user.is_superuser is False):
+    elif int(round_num) > request.user.team.in_round or (STATUS=='pre' and request.user.is_superuser is False and request.user.team.is_testsolver is False):
         return redirect('hunt20-invalid')
     
     else:
@@ -126,7 +138,7 @@ def puzzle_archives(request, puzzle_id):
         puzzle_html = 'hunt20/puzzles/' + puzzle_id + '.html'
         return render(request, puzzle_html, context)
 
-    elif (STATUS=='pre' and request.user.is_superuser is False) or ((int(puzzle.in_round) > request.user.team.in_round) or (puzzle.unlocks_at > request.user.team.round_solves(puzzle.in_round))):
+    elif (STATUS=='pre' and request.user.is_superuser is False and request.user.team.is_testsolver is False) or ((int(puzzle.in_round) > request.user.team.in_round) or (puzzle.unlocks_at > request.user.team.round_solves(puzzle.in_round))):
         return redirect('hunt20-invalid')
 
     else:
@@ -147,13 +159,19 @@ def puzzle_archives(request, puzzle_id):
 
 @login_required
 def solution_archives(request, puzzle_id):
-    
-    context = {
-        'puzzle_id': puzzle_id,
-        'puzzle': Puzzle.objects.filter(puzzle_id=puzzle_id).first(),
-    }
-    sol_html = 'hunt20/puzzles/' + puzzle_id + '_sol.html'
-    return render(request, sol_html, context)
+    STATUS = get_hunt_status()
+
+    if (STATUS == 'post' or request.user.is_superuser):
+
+        context = {
+            'puzzle_id': puzzle_id,
+            'puzzle': Puzzle.objects.filter(puzzle_id=puzzle_id).first(),
+        }
+        sol_html = 'hunt20/puzzles/' + puzzle_id + '_sol.html'
+        return render(request, sol_html, context)
+
+    else:
+        return redirect('hunt20-invalid')
 
 @login_required
 def submit(request, puzzle_id):
@@ -259,7 +277,10 @@ def submit(request, puzzle_id):
 
 @login_required
 def hints(request):
-    HINTS = get_avail_hints()
+    if request.user.team.is_testsolver:
+        HINTS = 14
+    else:
+        HINTS = get_avail_hints()
     bg = get_background(request)
     STATUS = get_hunt_status()
     if request.method == 'POST':
@@ -362,93 +383,93 @@ def insanity_check(request):
             output = '~C~'
         else:
             output = 'A'
-    elif s[-38:]=='15'*19:
-        if len(s)<40:
+    elif s[-40:]=='15'*20:
+        if len(s)<42:
             output = '~R~'
-        elif s[-40:-38]!='15':
+        elif s[-42:-40]!='15':
             output = '~R~'
         else:
             output = 'N'
-    elif s[-32:]=='16'*16:
-        if len(s)<34:
+    elif s[-50:]=='16'*25:
+        if len(s)<52:
             output = '~A~'
-        elif s[-34:-32]!='16':
+        elif s[-52:-50]!='16':
             output = '~A~'
         else:
             output = 'E'
-    elif s[-10:]=='23'*5:
-        if len(s)<12:
+    elif s[-32:]=='23'*16:
+        if len(s)<34:
             output = '~Z~'
-        elif s[-12:-10]!='23':
+        elif s[-34:-32]!='23':
             output = '~Z~'
         else:
             output = 'S'
-    elif s[-24:]=='24'*12:
-        if len(s)<26:
-            output = '~Y~'
-        elif s[-26:-24]!='24':
-            output = '~Y~'
-        else:
-            output = 'A'
-    elif s[-24:]=='25'*12:
-        if len(s)<26:
-            output = '~I~'
-        elif s[-26:-24]!='25':
-            output = '~I~'
-        else:
-            output = 'N'
-    elif s[-26:]=='26'*13:
-        if len(s)<28:
-            output = '~A~'
-        elif s[-28:-26]!='26':
-            output = '~A~'
-        else:
-            output = 'E'
-    elif s[-50:]=='34'*25:
-        if len(s)<52:
-            output = '~M~'
-        elif s[-52:-50]!='34':
-            output = '~M~'
-        else:
-            output = 'A'
-    elif s[-40:]=='35'*20:
-        if len(s)<42:
-            output = '~B~'
-        elif s[-42:-40]!='35':
-            output = '~B~'
-        else:
-            output = 'N'
-    elif s[-18:]=='36'*9:
-        if len(s)<20:
-            output = '~L~'
-        elif s[-20:-18]!='36':
-            output = '~L~'
-        else:
-            output = 'E'
-    elif s[-40:]=='45'*20:
-        if len(s)<42:
-            output = '~I~'
-        elif s[-42:-40]!='45':
-            output = '~I~'
-        else:
-            output = 'N'
-    elif s[-24:]=='46'*12:
-        if len(s)<26:
-            output = '~N~'
-        elif s[-26:-24]!='46':
-            output = '~N~'
-        else:
-            output = 'E'
-    elif s[-10:]=='56'*5:
+    elif s[-10:]=='24'*5:
         if len(s)<12:
+            output = '~Y~'
+        elif s[-12:-10]!='24':
+            output = '~Y~'
+        else:
+            output = 'A'
+    elif s[-18:]=='25'*9:
+        if len(s)<20:
+            output = '~I~'
+        elif s[-20:-18]!='25':
+            output = '~I~'
+        else:
+            output = 'N'
+    elif s[-28:]=='26'*14:
+        if len(s)<30:
+            output = '~A~'
+        elif s[-30:-28]!='26':
+            output = '~A~'
+        else:
+            output = 'E'
+    elif s[-32:]=='34'*16:
+        if len(s)<34:
+            output = '~M~'
+        elif s[-34:-32]!='34':
+            output = '~M~'
+        else:
+            output = 'A'
+    elif s[-38:]=='35'*19:
+        if len(s)<40:
+            output = '~B~'
+        elif s[-40:-38]!='35':
+            output = '~B~'
+        else:
+            output = 'N'
+    elif s[-50:]=='36'*25:
+        if len(s)<52:
+            output = '~L~'
+        elif s[-52:-50]!='36':
+            output = '~L~'
+        else:
+            output = 'E'
+    elif s[-6:]=='45'*3:
+        if len(s)<8:
+            output = '~I~'
+        elif s[-8:-6]!='45':
+            output = '~I~'
+        else:
+            output = 'N'
+    elif s[-16:]=='46'*8:
+        if len(s)<18:
+            output = '~N~'
+        elif s[-18:-16]!='46':
+            output = '~N~'
+        else:
+            output = 'E'
+    elif s[-30:]=='56'*15:
+        if len(s)<32:
             output = '~D~'
-        elif s[-12:-10]!='56':
+        elif s[-32:-30]!='56':
             output = '~D~'
         else:
             output = 'E'
     #braille
-    elif s[-25:]=='2312452351124523234512456':
-        output = '~Hurley~'
+    elif s[-25:]=='12352351245612134145':
+        output = "~Hurley's Numbers~"
     #lost
     elif s[-108:]==('1'*4)+('2'*8)+('3'*15)+('4'*16)+('5'*23)+('6'*42):
         output = 'Your answer is the location of the art gallery known as "The Museum of Insanity"'

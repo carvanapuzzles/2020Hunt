@@ -14,7 +14,7 @@ def get_background(request):
         background = 'puzzlympics'
     return background
 
-HUNT_START = pytz.timezone("MST").localize(datetime.datetime(2020, 6, 13, 18, 20))
+HUNT_START = pytz.timezone("MST").localize(datetime.datetime(2020, 6, 25, 12, 0))
 HUNT_END = pytz.timezone("MST").localize(datetime.datetime(2020, 7, 2, 12, 0))
 
 def get_hunt_status():
@@ -25,12 +25,12 @@ def get_hunt_status():
     else:
         return "post"
 
-HINTS_4 = pytz.timezone("MST").localize(datetime.datetime(2019, 6, 26, 20, 0))
-HINTS_6 = pytz.timezone("MST").localize(datetime.datetime(2019, 8, 26, 20, 0))
-HINTS_8 = pytz.timezone("MST").localize(datetime.datetime(2019, 8, 26, 20, 0))
-HINTS_10 = pytz.timezone("MST").localize(datetime.datetime(2019, 8, 26, 20, 0))
-HINTS_12 = pytz.timezone("MST").localize(datetime.datetime(2019, 8, 26, 20, 0))
-HINTS_14 = pytz.timezone("MST").localize(datetime.datetime(2019, 8, 26, 20, 0))
+HINTS_4 = pytz.timezone("MST").localize(datetime.datetime(2020, 6, 26, 12, 0))
+HINTS_6 = pytz.timezone("MST").localize(datetime.datetime(2020, 6, 27, 12, 0))
+HINTS_8 = pytz.timezone("MST").localize(datetime.datetime(2020, 6, 28, 12, 0))
+HINTS_10 = pytz.timezone("MST").localize(datetime.datetime(2020, 6, 29, 12, 0))
+HINTS_12 = pytz.timezone("MST").localize(datetime.datetime(2020, 6, 30, 12, 0))
+HINTS_14 = pytz.timezone("MST").localize(datetime.datetime(2020, 7, 1, 12, 0))
 
 
 def get_avail_hints():

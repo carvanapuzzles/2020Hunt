@@ -3,10 +3,10 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <h1 class="text-center mb-3">Hints</h1>
-{% if status == 'pre' %}
-    <h2 class="text-center">Hints will be available when hunt launches</h2>
-    <h4>(Thursday, June 25th at 12 pm AZ time)</h4>
-{% elif status == 'post' %}
+{% if status == 'pre' and user.team.is_testsolver == False %}
+    <h3 class="text-center">Hints will unlock when the hunt launches!</h3>
+    <h5 class="text-center">(Thursday June 25 @ 12pm AZ time)</h5>
+{% elif status == 'post' and user.team.is_testsolver == False  %}
     <h2 class="text-center mb-3">Hunt is over! Thanks for participating!</h2>
     <h2>Previous Hints</h2>
     {% for hint in hints %}

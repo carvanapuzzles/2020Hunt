@@ -96,6 +96,14 @@
     background: rgb(100, 100, 100);
 }
 
+#puzzlympics .puzzlelinks a {
+    color: rgb(199, 130, 66);
+}
+
+#puzzlympics .puzzlelinks a:hover {
+    color: gold;
+}
+
 
 #tt {
     background-image: url("desert.jpg");
@@ -130,6 +138,29 @@ body {
     font-family: Spartan;
 }
 
+body a{
+    color: whitesmoke;
+}
+
+body a:hover{
+    color: white;
+}
+
+#snowflake .leaders a{
+    color: white;
+}
+
+#snowflake .leaders a{
+    color: silver;
+}
+
+#northpole .leaders a{
+    color: black;
+}
+
+#northpole .leaders a:hover{
+    color: red;
+}
 
 
 .navbar {
@@ -145,13 +176,7 @@ body {
     color: white; 
 }
 
-a  {
-    color: rgb(194, 125, 61);
-}
 
-a:hover {
-    color: whitesmoke;
-}
 
 .puzzlelink {
     color: rgb(194, 125, 61);
@@ -537,4 +562,11 @@ hr {
 
 .stats .t{
     border-top: 2px solid black;
+}
+
+.fishtales {
+    font-family: 'Cutive';
+}
+.fishtales p{
+    margin-bottom: 40px;
 }

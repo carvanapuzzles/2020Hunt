@@ -3,62 +3,63 @@
 {% load tz %}
 {% block content %}
     <h1 class='text-center mb-3'>Leaderboard</h1>
-    <table style="width:100%" class="table">
-        <thead>
-            <tr class="text-uppercase">
-                <th style="width: 10%">Rank</th>
-                <th style="width: 50%">Team Name</th>
-                <th style="width: 15%">Solves</th> 
-                <th style="width: 25%">Last Solve (MST)</th>
-            </tr>
-        </thead>
-        <tbody>   
-            {% for team in teams %}
-                {% if user == team.username %}
-                    <tr class="text-warning">
-                        <td>{{ forloop.counter }}</td>
-                        <td>
-                            {% if team.total_solves == 21 %}
-                                🏅🏅🏅{{ team.name }}🏅🏅🏅
-                            {% else %}
-                                {{ team.name }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {{ team.total_solves }}
-                        </td> 
-                        <td>
-                            {%if team.total_solves > 0 %}
-                                {{team.last_solve_datetime|timezone:"MST"}}
-                            {%else%}
-                                ---
-                            {%endif%}
-                        </td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td>{{ forloop.counter }}</td>
-                        <td>
-                            {% if team.total_solves == 21 %}
-                                🏅🏅🏅{{ team.name }}🏅🏅🏅
-                            {% else %}
-                                {{ team.name }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {{ team.total_solves }}
-                        </td> 
-                        <td>
-                            {%if team.total_solves > 0 %}
-                                {{team.last_solve_datetime|timezone:"MST"}}
-                            {%else%}
-                                ---
-                            {%endif%}
-                        </td>
-                    </tr>
-                {% endif %}
-            {% endfor %}
-        </tbody>  
-    </table>
-
+    <div class="leaders">
+        <table style="width:100%" class="table">
+            <thead>
+                <tr class="text-uppercase">
+                    <th style="width: 10%">Rank</th>
+                    <th style="width: 50%">Team Name</th>
+                    <th style="width: 15%">Solves</th> 
+                    <th style="width: 25%">Last Solve (MST)</th>
+                </tr>
+            </thead>
+            <tbody>   
+                {% for team in teams %}
+                    {% if user == team.username %}
+                        <tr class="text-warning">
+                            <td>{{ forloop.counter }}</td>
+                            <td>
+                                {% if team.total_solves == 21 %}
+                                    <a class="text-warning" href="{%url 'hunt20-team' team.username.pk %}">🏅🏅🏅{{ team.name }}🏅🏅🏅</a>
+                                {% else %}
+                                    <a class="text-warning" href="{%url 'hunt20-team' team.username.pk %}">{{ team.name }}</a>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {{ team.total_solves }}
+                            </td> 
+                            <td>
+                                {%if team.total_solves > 0 %}
+                                    {{team.last_solve_datetime|timezone:"MST"}}
+                                {%else%}
+                                    ---
+                                {%endif%}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>
+                                {% if team.total_solves == 21 %}
+                                    <a href="{%url 'hunt20-team' team.username.pk %}">🏅🏅🏅{{ team.name }}🏅🏅🏅</a>
+                                {% else %}
+                                    <a href="{%url 'hunt20-team' team.username.pk %}">{{ team.name }}</a> 
+                                {% endif %}
+                            </td>
+                            <td>
+                                {{ team.total_solves }}
+                            </td> 
+                            <td>
+                                {%if team.total_solves > 0 %}
+                                    {{team.last_solve_datetime|timezone:"MST"}}
+                                {%else%}
+                                    ---
+                                {%endif%}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>  
+        </table>
+    </div>
 {% endblock content %}

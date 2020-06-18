@@ -2,9 +2,55 @@
 {%block bodyclass%}{{background}}{% endblock bodyclass%}
 {% block content %}
 <h1 class="text-center mb-3">Puzzles</h1>
-{% if status == 'pre' %}
-    <h2>Hunt hasn't started yet!</h2>
-{% elif status == 'active' %}
+{% if status == 'pre' and user.team.is_testsolver == False and user.is_superuser == False %}
+    <h3 class="text-center">Puzzles will unlock when the hunt launches!</h3>
+    <h5 class="text-center">(Thursday June 25 @ 12pm AZ time)</h5>
+{% elif status == 'post' and user.team.is_testsolver == False and user.is_superuser == False %}
+    <div>
+        <div class="row justify-content-center">
+            <a href="{%url 'hunt20-round-archives' 1 %}" class="card m-3 bg-dark border-light col-6 bronze">
+                <div class="card-body">
+                    <h3 class="card-title d-flex justify-content-center">
+                    ROUND I
+                    </h4>
+        
+                    <div class="card-text d-flex justify-content-center">
+                        "Things won are done, joy's soul lies in the puzzling"
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="row justify-content-center">
+            <a href="{%url 'hunt20-round-archives' 2 %}" class="card m-3 bg-dark border-light col-6 silver">
+                <div class="card-body">
+                    <h3 class="card-title d-flex justify-content-center">
+                    ROUND II
+                    </h4>
+        
+                    <div class="card-text d-flex justify-content-center">
+                        "Nearly all men can stand adversity, but if you want to test a man's character, give him puzzles"
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="row justify-content-center">
+            <a href="{%url 'hunt20-round-archives' 3 %}" class="card m-3 bg-dark border-light col-6 gold">
+                <div class="card-body">
+                    <h3 class="card-title d-flex justify-content-center">
+                    ROUND III
+                    </h4>
+        
+                    <div class="card-text d-flex justify-content-center">
+                        "The keenest sorrow is to recognize ourselves as the sole cause of all our puzzles"
+                    </div>
+                </div>
+            </a>
+        </div>
+    
+    </div>
+{% else %}
     <div>
         <div class="row justify-content-center">
             <a href="{%url 'hunt20-round-archives' 1 %}" class="card m-3 bg-dark border-light col-lg-6 bronze">
@@ -49,51 +95,6 @@
                 </a>
             </div>
         {% endif %}
-    </div>
-{% else %}
-    <div>
-        <div class="row justify-content-center">
-            <a href="{%url 'hunt20-round-archives' 1 %}" class="card m-3 bg-dark border-light col-6 bronze">
-                <div class="card-body">
-                    <h3 class="card-title d-flex justify-content-center">
-                    ROUND I
-                    </h4>
-        
-                    <div class="card-text d-flex justify-content-center">
-                        "Things won are done, joy's soul lies in the puzzling"
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="row justify-content-center">
-            <a href="{%url 'hunt20-round-archives' 2 %}" class="card m-3 bg-dark border-light col-6 silver">
-                <div class="card-body">
-                    <h3 class="card-title d-flex justify-content-center">
-                    ROUND II
-                    </h4>
-        
-                    <div class="card-text d-flex justify-content-center">
-                        "Nearly all men can stand adversity, but if you want to test a man's character, give him puzzles"
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="row justify-content-center">
-            <a href="{%url 'hunt20-round-archives' 3 %}" class="card m-3 bg-dark border-light col-6 gold">
-                <div class="card-body">
-                    <h3 class="card-title d-flex justify-content-center">
-                    ROUND III
-                    </h4>
-        
-                    <div class="card-text d-flex justify-content-center">
-                        "The keenest sorrow is to recognize ourselves as the sole cause of all our puzzles"
-                    </div>
-                </div>
-            </a>
-        </div>
-    
     </div>
 {% endif %}
 {% endblock content %}
