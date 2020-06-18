@@ -1,0 +1,18 @@
+{% extends django_slack %}
+{% load django_slack %}
+
+{% block text %}
+:wave: {{ team|escapeslack }} (led by {{ captain|escapeslack }}) joined!
+{% endblock %}
+
+{% block channel %}
+2020-reg
+{% endblock %}
+
+{% block username %}
+carvanapuzzles
+{% endblock %}
+
+{% block icon_emoji %}
+{{ emoji }}
+{% endblock %}

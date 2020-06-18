@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from hunt20.models import Team
 from hunt20.models import Submission
 from django.contrib.auth.models import User
+from django_slack import slack_message
 from hunt20.globals import get_background
 
 def register(request):
@@ -23,7 +24,16 @@ def register(request):
             user = authenticate(username=user.username, password=raw_password)
             login(request, user)
             messages.success(request, f'{team_name} successfully registered!')
+
+
+            slack_message('users/reg.slack',{
+                'captain':captain,
+                'team': team_name,
+                'emoji':'squirrel',
+            })
+
             return redirect('hunt20-home')
+
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
