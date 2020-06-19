@@ -14,7 +14,7 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username','email','password1','password2']
         help_texts = {
-            'username': 'Shorter, private name your ENTIRE TEAM will share and use to login',
+            'username': 'Shorter, private name your ENTIRE TEAM will share and use to login (do not use your Carvana username/password)',
         }
 
 class AddMemberForm(forms.ModelForm):
