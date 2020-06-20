@@ -78,8 +78,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cph2020.wsgi.application'
 
 # Security redirect
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
