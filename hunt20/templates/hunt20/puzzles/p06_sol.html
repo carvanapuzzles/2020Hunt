@@ -2,5 +2,252 @@
 {%block bodyclass%}puzzlympics{% endblock bodyclass%}
 
 {% block solutioncontent %}
-That's how to do it
+<p>
+    Each blank can be filled in to complete a clue that describes an answer from the round:
+</p>
+<div id="metablanks">
+    <p>
+        <table>
+            <tr>
+                <td>Actress <span class="ml-2"></span></td>
+                <td>A</td>
+                <td>N</td>
+                <td>D</td>
+                <td>R</td>
+                <td>E</td>
+                <td>W</td>
+                <td>S</td>
+                <td>- (JULIE)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>3</td>
+                <td>1</td>
+                <td>2</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </p>
+    <p>
+        <table>
+            <tr>
+                <td>Daughter of <span class="ml-2"></span></td>
+                <td>K</td>
+                <td>I</td>
+                <td>N</td>
+                <td>G</td>
+                <td><span class="m-1"></span></td>
+                <td>C</td>
+                <td>Y</td>
+                <td>M</td>
+                <td>B</td>
+                <td>A</td>
+                <td>L</td>
+                <td>I</td>
+                <td>N</td>
+                <td>E</td>
+                <td>- (IMOGEN)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>3</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td></td>
+                <td>2</td>
+                <td></td>
+            </tr>
+        </table>
+    </p>
+    <p>
+        <table>
+            <tr>
+                <td>Similar event to <span class="ml-2"></span></td>
+                <td>B</td>
+                <td>O</td>
+                <td>B</td>
+                <td>S</td>
+                <td>L</td>
+                <td>E</td>
+                <td>D</td>
+                <td><span class="m-1"></span></td>
+                <td>O</td>
+                <td>R</td>
+                <td><span class="m-1"></span></td>
+                <td>L</td>
+                <td>U</td>
+                <td>G</td>
+                <td>E</td>
+                <td>- (SKELETON)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>3</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </p>
+    <p>
+        <table>
+            <tr>
+                <td>The first <span class="ml-2"></span></td>
+                <td>C</td>
+                <td>H</td>
+                <td>A</td>
+                <td>N</td>
+                <td>C</td>
+                <td>E</td>
+                <td>L</td>
+                <td>L</td>
+                <td>O</td>
+                <td>R</td>
+                <td><span class="m-1"></span></td>
+                <td>O</td>
+                <td>F</td>
+                <td><span class="m-1"></span></td>
+                <td>G</td>
+                <td>E</td>
+                <td>R</td>
+                <td>M</td>
+                <td>A</td>
+                <td>N</td>
+                <td>Y</td>
+                <td>- (BISMARCK)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>3</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>1</td>
+            </tr>
+        </table>
+    </p>
+    <p>
+        <table>
+            <tr>
+                <td>Used for <span class="ml-2"></span></td>
+                <td>M</td>
+                <td>E</td>
+                <td>A</td>
+                <td>S</td>
+                <td>U</td>
+                <td>R</td>
+                <td>I</td>
+                <td>N</td>
+                <td>G</td>
+                <td><span class="m-1"></span></td>
+                <td>T</td>
+                <td>I</td>
+                <td>M</td>
+                <td>E</td>
+                <td>- (HOURGLASS)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>2</td>
+                <td></td>
+                <td>3</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </p>
+</div>
+<p>
+    The numbered letters in each clue spell a color or an abbreviation of one: RED, BLK, BLU, YEL, GRN. These are the colors of the 5 Puzzlympic (and Olympic) rings! 
+</p>
+<p>
+    Now that each answer is associated with a ring, the rings can be treated like venn diagrams ("in a nearby intersection"). Intersecting answers share exactly two common letters in the same order:
+</p>
+<table class="text-center">
+    <thead>
+        <th>Intersection</th>
+        <th>Answers</th>
+        <th>Overlap</th>
+    </thead>
+    <tr>
+        <td>Blue and Yellow</td>
+        <td>SKELETON / BISMARCK</td>
+        <td>SK</td>
+    </tr>
+    <tr>
+        <td>Yellow and Black</td>
+        <td>BISMARCK / IMOGEN</td>
+        <td>IM</td>
+    </tr>
+    <tr>
+        <td>Black and Green</td>
+        <td>IMOGEN / HOURGLASS</td>
+        <td>OG</td>
+    </tr>
+    <tr>
+        <td>Green and Red</td>
+        <td>HOURGLASS / JULIE</td>
+        <td>UL</td>
+    </tr>
+</table>
+<p class="my-3">
+    Reading left to right across the ring intersections yields the answer <span class="h5 text-success">SKI MOGUL</span>.
+</p>
+<div class="flavor">
+    Author's Notes
+</div>
+<div class="flavor">
+    When we first started brainstorming themes for the hunt in late 2019, Puzzlympics quickly shot to the front. It was (supposed to be) an Olympic year and the potential for doing a lot of cool event-themed puzzles made us lock it in. We immediately started thinking of punny meta answers, and 3 favorites came to the front. "Medaling Kids" became the title and website, "Ancient Grease" never found its way in, and "Ski Mogul" you see here.
+</div>
+<div class="flavor">
+    We originally envisioned the hunt as an opening ceremony intro round + 1-2 rounds of puzzlympic games where the leaderboard would look and feel akin to a Olympic medal count leaderboard. A few event-y puzzles (Track and Field was one that made it through, for example) were brainstormed, but it wasn't really generating too much inspiration. So we decided to let "Ski Mogul" take us in another direction, and the hunt plot you saw came to be.
+</div>
+<div class="flavor">
+    I think the puzzle itself turned out nicely and is my favorite meta of the 3 rounds. It has a couple different aha moments and uses the source material in a fun fashion. We hoped a lot of teams would get to feel the accomplishment of finishing the first round and... -JO
+</div>
 {% endblock solutioncontent %}
