@@ -2,5 +2,175 @@
 {%block bodyclass%}snowflake{% endblock bodyclass%}
 
 {% block solutioncontent %}
-That's how to do it
+<p>
+    Each of the clues has had a letter altered. Every unaltered clue has an answer that can be found in the track grid by reading counterclockwise and moving forward or forwards and diagonally every step. Every entry in the track grid also has a letter changed. Notably, the letter that overwrites the correct letter is the same for both the clue and the answer in the grid.
+</p>
+<p>
+    For instance, the 400m clue "Film with a Count" has been altered to "Film with a <span class="text-warning">M</span>ount" and its corresponding entry in the grid LEMONY SNICKETS A SE<span class="text-warning">M</span>IES OF UNFORTUNATE EVENTS in the grid (traced in yellow, below).
+</p>
+<p>
+    After solving and finding all the clue answers, 10 track cells are unused. Reading counterclockwise from the starting line they read "SORT AND FILL IN LETTERS"
+</p>
+<div class="row">
+    <img src='/static/hunt20/p12/xyz1.png' class='img-fluid'>
+</div>
+<p class="my-3">
+    The letters A-R are each used exactly once as an overwriting letter. Sort the correct letters in the clues and grid by these overwriting letters.
+</p>
+<table class="table">
+    <thead>
+        <th>Overwriting letter</th>
+        <th>Real clue</th>
+        <th>Answer</th>
+        <th>Changed clue letter</th>
+        <th>Changed answer letter</th>
+    </thead>
+    <tr>
+        <td>A</td>
+        <td>Dull experience</td>
+        <td>SNOOZEFEST</td>
+        <td>L</td>
+        <td>E</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>Aaron's idol</td>
+        <td>GOLDEN CALF</td>
+        <td>A</td>
+        <td>N</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>Mystery book</td>
+        <td>THE CURIOUS INCIDENT OF THE DOG IN THE NIGHTTIME</td>
+        <td>B</td>
+        <td>T</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>Place to trade shares</td>
+        <td>NEW YORK STOCK EXCHANGE</td>
+        <td>E</td>
+        <td>E</td>
+    </tr>
+    <tr>
+        <td>E</td>
+        <td>Plans how to steal the ball</td>
+        <td>DEFENSIVE COORDINATOR</td>
+        <td>A</td>
+        <td>R</td>
+    </tr>
+    <tr>
+        <td>F</td>
+        <td>It makes you contribute money to the USA</td>
+        <td>FEDERAL TAX</td>
+        <td>U</td>
+        <td>A</td>
+    </tr>
+    <tr>
+        <td>G</td>
+        <td>Mets Rival</td>
+        <td>PHILADELPHIA PHILLIES</td>
+        <td>M</td>
+        <td>S</td>
+    </tr>
+    <tr>
+        <td>H</td>
+        <td>It might get aired</td>
+        <td>COMMERCIAL</td>
+        <td>A</td>
+        <td>A</td>
+    </tr>
+    <tr>
+        <td>I</td>
+        <td>Biking accessories</td>
+        <td>SADDLEBAGS</td>
+        <td>G</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>J</td>
+        <td>Found near a net</td>
+        <td>GOALTENDER</td>
+        <td>N</td>
+        <td>T</td>
+    </tr>
+    <tr>
+        <td>K</td>
+        <td>They have a lot of planes</td>
+        <td>UNITED STATES AIR FORCE</td>
+        <td>E</td>
+        <td>T</td>
+    </tr>
+    <tr>
+        <td>L</td>
+        <td>It has millions of votes</td>
+        <td>PRESIDENTIAL ELECTION</td>
+        <td>T</td>
+        <td>E</td>
+    </tr>
+    <tr>
+        <td>M</td>
+        <td>Film with a Count</td>
+        <td>LEMONY SNICKETS A SERIES OF UNFORTUNATE EVENTS</td>
+        <td>C</td>
+        <td>R</td>
+    </tr>
+    <tr>
+        <td>N</td>
+        <td>It's polite to give up your spot here</td>
+        <td>PUBLIC TRANSPORTATION</td>
+        <td>P</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>O</td>
+        <td>Riled up</td>
+        <td>AGGRAVATED</td>
+        <td>R</td>
+        <td>A</td>
+    </tr>
+    <tr>
+        <td>P</td>
+        <td>Buried at Glastonbury Abbey</td>
+        <td>KING ARTHUR</td>
+        <td>I</td>
+        <td>K</td>
+    </tr>
+    <tr>
+        <td>Q</td>
+        <td>Former SQL star</td>
+        <td>AMY POEHLER</td>
+        <td>N</td>
+        <td>R</td>
+    </tr>
+    <tr>
+        <td>R</td>
+        <td>Gate for a castle</td>
+        <td>PORTCULLIS</td>
+        <td>G</td>
+        <td>S</td>
+    </tr>
+</table>
+<p class="my-3">
+    Awesome, we've sorted. Now what does "fill in letters" mean? Reading down each changed letter columns, 3 fields can be seen in each column, just with a letter missing.
+</p>
+<p>
+    LA( M )BEAU Field -- MAGNET( I )C Field -- ( S )PRINGfield
+</p>
+<p>
+    ( C )ENTERfield -- ASA B( U )TTERfield -- BAK( E )RSfield
+</p>
+<p class="my-3">
+    The missing letters spell the answer, <span class="h5 text-success">MISCUE</span>.
+</p>
+<div class="flavor">
+    Author's Note
+</div>
+<div class="flavor">
+    This is the puzzle that took the longest to construct in the hunt. Probably ~40 hours. I can't say exactly why, looking back. The puzzle didn't change very much from conception to final mechanics. Most of that time was me getting 70% done and then realizing I made a critical error like transposing the overwriting/changed letters in the clue and answer. I still like it though, which is rare for me after completely butchering a construction. 
+</div>
+<div class="flavor">
+    I tried about five versions of the final field words as well. At one point the final answer was DISCUS as opposed to MISCUE. I worked for a while on a version that would extract "Symphysodon", the scientific name for the fish better known as a discus. If there's one thing from this hunt that I could have gotten to work but ultimately didn't, it would have been that. -JO
+</div>
 {% endblock solutioncontent %}
