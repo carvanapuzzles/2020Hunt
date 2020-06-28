@@ -68,7 +68,7 @@ def team(request, user_pk):
         'displayteam': Team.objects.filter(username__pk=user_pk).first(),
         'form' : form,
         'background' : bg,
-        'solves' : Submission.objects.filter(username=user).filter(correct=True),
+        'solves' : sorted(Submission.objects.filter(username=user).filter(correct=True), key=lambda b: b.eventdatetime),
     }
     return render(request, 'users/team.html', context = context)
 
