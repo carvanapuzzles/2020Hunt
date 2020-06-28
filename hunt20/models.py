@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from .globals import get_avail_hints
 
 class Puzzle(models.Model):
     puzzle_id = models.CharField(max_length=100)
@@ -86,8 +87,9 @@ class Team(models.Model):
 
     @property
     def hints_remaining(self):
+        HINTS = get_avail_hints()
         hints_taken = HintRequest.objects.filter(username=self.username).filter(refunded=False).count()
-        return 10 - hints_taken
+        return HINTS - hints_taken
     
     def has_solved_puzzle(self, puzzle_id):
         return Submission.objects.filter(username=self.username).filter(correct=True).filter(puzzle__puzzle_id=puzzle_id).exists()

@@ -56,5 +56,29 @@
             <h5>Team is full!</h5>
         {% endif %}
     {% endif %}
+    {% if displayteam.username == user or user.is_superuser %}
+    <br>
+    <h3 class="my-2">Solves</h3>
+    <table class="table">
+        <thead>
+            <th>
+                Puzzle
+            </th>
+            <th>
+                Solved At
+            </th>
+        </thead>
+        {%for solve in solves %}
+        <tr>
+            <td>
+                {{solve.puzzle.puzzle_name}}
+            </td>
+            <td>
+                {{solve.eventdatetime}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
 {% endif %}
 {% endblock content %}

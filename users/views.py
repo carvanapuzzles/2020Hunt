@@ -61,11 +61,14 @@ def team(request, user_pk):
             return redirect('hunt20-team', user_pk=user_pk)
     else:
         form = AddMemberForm(instance=request.user.team)
-                
+
+    user = User.objects.filter(id=user_pk).first()
+
     context = {
         'displayteam': Team.objects.filter(username__pk=user_pk).first(),
         'form' : form,
-        'background' : bg
+        'background' : bg,
+        'solves' : Submission.objects.filter(username=user).filter(correct=True),
     }
     return render(request, 'users/team.html', context = context)
 

@@ -20,7 +20,7 @@
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>
-                        {{ team.name }}
+                        {{ team.name }} <small>({{team.hints_remaining}})</small>
                     </td>
                     <td>
                         {{ team.total_solves }}
@@ -81,7 +81,7 @@
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <td>
-                            {{ team.name }}
+                            {{ team.name }} <small>({{team.hints_remaining}})</small>
                         </td>
                         <td>
                             {{ team.total_solves }}
@@ -142,7 +142,7 @@
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <td>
-                            {{ team.name }}
+                            {{ team.name }} <small>({{team.hints_remaining}})</small>
                         </td>
                         <td>
                             {{ team.total_solves }}
