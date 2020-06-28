@@ -1,5 +1,6 @@
 {% extends "hunt20/base.html" %}
 {%block bodyclass%}{{background}}{% endblock bodyclass%}
+{% load tz %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -74,7 +75,7 @@
                 {{solve.puzzle.puzzle_name}}
             </td>
             <td>
-                {{solve.eventdatetime}}
+                {{solve.eventdatetime|timezone:"MST"}}
             </td>
         </tr>
         {% endfor %}
