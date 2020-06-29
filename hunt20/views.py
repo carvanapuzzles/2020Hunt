@@ -468,7 +468,7 @@ def insanity_check(request):
         else:
             output = 'E'
     #braille
-    elif s[-25:]=='12352351245612134145':
+    elif s[-20:]=='12352351245612134145':
         output = "~Hurley's Numbers~"
     #lost
     elif s[-108:]==('1'*4)+('2'*8)+('3'*15)+('4'*16)+('5'*23)+('6'*42):
