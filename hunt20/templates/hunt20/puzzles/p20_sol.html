@@ -2,5 +2,97 @@
 {%block bodyclass%}northpole{% endblock bodyclass%}
 
 {% block solutioncontent %}
-That's how to do it
+<p>First, solve the logic puzzle. Here's a screenshot of the final grid with letters as points of interest and Xs as fountains. The 1s trace the path to A, the 2s to B, etc. Fountains are colored in by the route they are on (we'll get to the street and avenue names in a second).</p>
+<img src='/static/hunt20/p20/logicpuzzle_sol.png' class='img-fluid'>
+<p class="my-3">
+    Indexing the address number (number of fountains passed) into the point of interest's name and reading across town (B E C D G F A) yields:
+</p>
+<div>
+    B (O) WLING ALLEY - 2
+</div>
+<div>
+    EAST (W) OOD PARK - 5
+</div>
+<div>
+    CO (L) LEGE - 3
+</div>
+<div>
+    DU (C) K POND - 3
+</div>
+<div>
+    GYMNAS (I) UM - 7
+</div>
+<div>
+    F (T) TRAIN - 2
+</div>
+<div>
+    AS (Y) LUM - 3
+</div>
+<p class="my-3">
+    The letters spell OWL CITY. Not only can we see why this puzzle might make heads spin, the clues for the streets and avenues make more sense. Every street is named after an Owl City song and every avenue is named after a resident--a fictional owl (all of which are listed on Wikipedia's <a class="text-primary" href="https://en.wikipedia.org/wiki/List_of_fictional_birds_of_prey">List of fictional birds of prey</a>).
+</p>
+<h6>Streets (north to south)</h6>
+<div>
+    Reptilian name - ALLIGATOR SKY
+</div>
+<div>
+    Truly cosmic - GALAXIES
+</div>
+<div>
+    Named after an element - GOLD
+</div>
+<div>
+    Greeting a female friend - HEY ANNA
+</div>
+<div>
+    Flora in the general sense - PLANT LIFE
+</div>
+<div>
+    Greeting Austria - DEAR VIENNA
+</div>
+<h6 class="mt-2">Avenues (west to east)</h6>
+<div>
+    Greek name/Tritagonist in a 60s film - ARCHIMEDES
+</div>
+<div>
+    Maternal name, adopted orphan - BIG MAMA
+</div>
+<div>
+    Runs a museum - BLATHERS
+</div>
+<div>
+    Face of a league two team - CHADDY THE OWL
+</div>
+<div>
+    Replaced his body with machinery - CLOCKWERK
+</div>
+<div>
+    Named after unit of measurement/accompanied 25-year old king - GRAM
+</div>
+<p class="my-3">As mentioned in the instructions of the logic puzzle, each point of interest can be descibed as being at the "intersection" of a street and avenue. The street and avenue at the intersection each point of interest is at have the same number of letters in their name with exactly one letter overlapping. Extract this letter and read in A-F point of interest order.</p>
+<div>Asylum - GOLD/GRAM - G</div>
+<div>Bowling Alley - DEARVIENNA/ARCHIMEDES - E</div>
+<div>College - GALAXIES/BLATHERS - S</div>
+<div>Duck Pond - ALLIGATORSKY/CHADDYTHEOWL - T</div>
+<div>Eastwood Park - HEYANNA/BIGMAMA - A</div>
+<div>F Train - PLANTLIFE/CLOCKWERK - L</div>
+<div>Gymnasium - ALLIGATORSKY/CHADDYTHEOWL - T</div>
+<p class="my-3">
+    The letters spell <span class="h5 text-success">GESTALT</span>, "an organized whole that is perceived as more than the sum of its parts" as well as a fitting answer.
+</p>
+<div class="flavortext">
+    Author's Notes
+</div>
+<div class="flavor">
+    The last two Carvana Puzzle Hunts featured logic puzzles (Mental Block from 2017 and Going in Circles from 2019) that were fun and engaging to solve, but then unfortunately caused most solvers quite a lot of grief on the extraction. I joked at the start of writing we should just lean into this and explicitly call a puzzle "This Year's Logic Puzzle with a Difficult Extraction". Turns out, uh, we wrote a lot of those puzzles this year, just not in logic puzzle form. But this one is here too.
+</div>
+<div class="flavor">
+    As mentioned in a few other notes, we like ending rounds with a big hairy puzzle. We call these "gatekeepers" (see Stranger Things from last year) while we're writing. It's always fun to see one get cracked--we were really impressed Puzzlers Anonymous got it with only one hint.
+</div>
+<div class="flavor">
+    OK as far as the puzzle itself goes--it's a decently challenging logic puzzle, but definitely doable and very fun. I really like having the route to the Gymnasium be extremely vague and yet constrained by the rules. The idea for Owl City came as we were driving to Minneapolis earlier this summer and passed through Owatonna, MN the hometown of Adam Young of Owl City. I started thinking about what an actual city of owls would look like and the structure of the logic puzzle was born.
+</div>
+<div class="flavor">
+    If you never made it here in the hunt but are reading notes (hello!), I'd encourage you to give this one a whirl. It's very fun and you can slack me if you get stuck. I have a full deductive chain written up in shorthand but I didn't feel like translating it into the solution notes. -JO
+</div>
 {% endblock solutioncontent %}
