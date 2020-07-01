@@ -595,3 +595,9 @@ hr {
 .fishtales p{
     margin-bottom: 40px;
 }
+
+#monospaced div{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    letter-spacing: 7px;
+}
