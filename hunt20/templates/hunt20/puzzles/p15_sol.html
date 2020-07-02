@@ -2,5 +2,148 @@
 {%block bodyclass%}northpole{% endblock bodyclass%}
 
 {% block solutioncontent %}
-
+<p>The solver is presented with 6 numbered buttons that appear to consistently do the same thing when you press them (show the corresponding letter of I-N-S-A-N-E). The way to break into the puzzle is remembering the clued quote: "Insanity is doing the same thing over and over again and expecting different results."</p>
+<p>
+    Pressing a single button repeatedly for long enough will eventually give an unexpeced character with ~ on either side. Each number needs to be pressed a different amount of times to see this new character.
+</p>
+<table class="text-center table">
+    <thead>
+        <th>Button</th>
+        <th># of times pressed</th>
+        <th>New result</th>
+    </thead>
+    <tr>
+        <td>1</td>
+        <td>83</td>
+        <td>~A~</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>69</td>
+        <td>~S~</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>84</td>
+        <td>~C~</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>79</td>
+        <td>~I~</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>70</td>
+        <td>~I~</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>50</td>
+        <td>~!~</td>
+    </tr>
+</table>
+<p>
+    As the letters suggest, use ASCII to translate the number of presses into characters. This yields SETOF2.
+</p>
+<p>
+    The process can be repeated on sets of buttons. Alternating 121212... eventually yields another unexpected character, as does every set of two. Ordering them by low-hi num and counting the number of cycles needed to give the unexpected letter gives:
+</p>
+<table class="text-center table">
+    <thead>
+        <th>Set</th>
+        <th># of times repeated</th>
+        <th>New result</th>
+    </thead>
+    <tr>
+        <td>12</td>
+        <td>14</td>
+        <td>~S~</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>15</td>
+        <td>~O~</td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td>23</td>
+        <td>~C~</td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td>20</td>
+        <td>~R~</td>
+    </tr>
+    <tr>
+        <td>16</td>
+        <td>25</td>
+        <td>~A~</td>
+    </tr>
+    <tr>
+        <td>23</td>
+        <td>16</td>
+        <td>~Z~</td>
+    </tr>
+    <tr>
+        <td>24</td>
+        <td>5</td>
+        <td>~Y~</td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td>9</td>
+        <td>~I~</td>
+    </tr>
+    <tr>
+        <td>26</td>
+        <td>14</td>
+        <td>~A~</td>
+    </tr>
+    <tr>
+        <td>34</td>
+        <td>16</td>
+        <td>~M~</td>
+    </tr>
+    <tr>
+        <td>35</td>
+        <td>19</td>
+        <td>~B~</td>
+    </tr>
+    <tr>
+        <td>36</td>
+        <td>25</td>
+        <td>~L~</td>
+    </tr>
+    <tr>
+        <td>45</td>
+        <td>3</td>
+        <td>~I~</td>
+    </tr>
+    <tr>
+        <td>46</td>
+        <td>8</td>
+        <td>~N~</td>
+    </tr>
+    <tr>
+        <td>56</td>
+        <td>16</td>
+        <td>~D~</td>
+    </tr>
+</table>
+<p>
+    Using 1=A, 2=B, etc, this time the number of repeats gives NOW TYPE IN PSYCHO. Taken with the shown letters, SO CRAZY I AM BLIND, the penultimate idea can be executed. Spelling out "Psycho" in braille on the pad! Pressing the numbers in ascending order per letter causes "~Hurley's Numbers~" to pop on the screen.
+</p>
+<p>
+    This refers to the sequence 4, 8, 15,16, 23, 42 from the TV show <em>LOST</em>. Pressing the first button 4 times, followed by the second button 8 times, etc, at last brings onto the screen "Your answer is the location of the art gallery known as "The Museum of Insanity" "
+</p>
+<p>
+    This inspirational establishment is located in <span class="h5 text-success">EAU CLAIRE</span>, Wisconsin.
+</p>
+<div class="flavor">
+    Author's Notes
+</div>
+<div class="flavor">
+    So... this was something that I thought would just be funny. I brought the idea to Jesse, since my attempts at an organic way to get different results by doing the exact same thing were proving futile. It had to be coded up. We thought of the idea where you had to push each button a bunch of times before anything different would come up. I like the idea of putting in Hurley's cursed numbers from Lost becuase it went with the insanity theme (Hurley was in a mental institution for a while) and was something different. We added in the braille and set of 2 steps just to make it a little longer (more fun for you guys right????). And I've heard whatever doesn't kill you simply makes you... ~stranger~ -KO
+</div>
 {% endblock solutioncontent %}
