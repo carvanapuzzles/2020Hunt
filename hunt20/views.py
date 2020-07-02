@@ -67,16 +67,13 @@ def leaderboard(request):
     return render(request, 'hunt20/leaderboard.html', context)
 
 def bigboard(request):
-    if request.user.is_superuser is False:
-        return redirect('hunt20-invalid')
-    else:
-        context = {
-            'teams': sorted(sorted(Team.objects.filter(username__is_superuser=False).filter(is_testsolver=False), key=lambda b: b.last_solve_datetime),key=lambda a: a.total_solves, reverse=True),
-            'puzzles1': sorted(Puzzle.objects.filter(in_round=1),key=lambda b: b.puzzle_id),
-            'puzzles2': sorted(Puzzle.objects.filter(in_round=2),key=lambda b: b.puzzle_id),
-            'puzzles3': sorted(Puzzle.objects.filter(in_round=3),key=lambda b: b.puzzle_id),
-        }
-        return render(request, 'hunt20/bigboard.html', context)
+    context = {
+        'teams': sorted(sorted(Team.objects.filter(username__is_superuser=False).filter(is_testsolver=False), key=lambda b: b.last_solve_datetime),key=lambda a: a.total_solves, reverse=True),
+        'puzzles1': sorted(Puzzle.objects.filter(in_round=1),key=lambda b: b.puzzle_id),
+        'puzzles2': sorted(Puzzle.objects.filter(in_round=2),key=lambda b: b.puzzle_id),
+        'puzzles3': sorted(Puzzle.objects.filter(in_round=3),key=lambda b: b.puzzle_id),
+    }
+    return render(request, 'hunt20/bigboard.html', context)
 
 def testsolving(request):
     if request.user.is_superuser is False:
